@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">ReportManagement</string>
-
     <string name="academic_pager">Academic Pager</string>
 
     <string name="title_home">Home</string>
@@ -9,6 +8,9 @@
 
     <string name="title_sign_in">Sign In</string>
     <string name="title_sign_up">Sign Up</string>
+
+    <string name="text_sign_in">sign_in</string>
+    <string name="text_sign_up">sign_up</string>
 
     <string name="hint_id">Id</string>
     <string name="hint_name">Name</string>

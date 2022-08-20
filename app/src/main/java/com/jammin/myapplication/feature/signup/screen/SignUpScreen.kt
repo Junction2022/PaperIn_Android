@@ -1,14 +1,18 @@
 package com.jammin.myapplication.feature.signup.screen
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -19,18 +23,20 @@ import com.jammin.myapplication.core.component.BigMainRoundButton
 import com.jammin.myapplication.core.component.ReportInTextField
 import com.jammin.myapplication.core.theme.Body1
 import com.jammin.myapplication.core.theme.JunctionColor
+import com.jammin.myapplication.core.theme.JunctionTypography
 import com.jammin.myapplication.feature.signup.SignUpEvent
 import com.jammin.myapplication.feature.signup.vm.SignUpVM
+import com.jammin.myapplication.root.NavGroup
 
 @Composable
 fun SignUpScreen(
     navController: NavController,
-    viewModel: SignUpVM
+    signUpVm: SignUpVM
 ) {
 
-    val nameState = viewModel.signUpName.value
-    val idState = viewModel.signUpId.value
-    val passwordState = viewModel.signUpPassword.value
+    val nameState = signUpVm.signUpName.value
+    val idState = signUpVm.signUpId.value
+    val passwordState = signUpVm.signUpPassword.value
 
     Column(
         modifier = Modifier
@@ -49,7 +55,7 @@ fun SignUpScreen(
         ReportInTextField(
             backgroundColor = JunctionColor.Gray100,
             value = nameState.text,
-            onValueChange = { viewModel.onEvent(SignUpEvent.EnteredName(it)) },
+            onValueChange = { signUpVm.onEvent(SignUpEvent.EnteredName(it)) },
             hint = nameState.hint,
             round = 16.dp,
             modifier = Modifier.height(48.dp)
@@ -60,7 +66,7 @@ fun SignUpScreen(
         ReportInTextField(
             backgroundColor = JunctionColor.Gray100,
             value = idState.text,
-            onValueChange = { viewModel.onEvent(SignUpEvent.EnteredId(it)) },
+            onValueChange = { signUpVm.onEvent(SignUpEvent.EnteredId(it)) },
             hint = idState.hint,
             round = 16.dp,
             modifier = Modifier.height(48.dp)
@@ -71,7 +77,7 @@ fun SignUpScreen(
         ReportInTextField(
             backgroundColor = JunctionColor.Gray100,
             value = passwordState.text,
-            onValueChange = { viewModel.onEvent(SignUpEvent.EnteredPassword(it)) },
+            onValueChange = { signUpVm.onEvent(SignUpEvent.EnteredPassword(it)) },
             hint = passwordState.hint,
             round = 16.dp,
             isPassword = true,
@@ -85,11 +91,29 @@ fun SignUpScreen(
             modifier = Modifier.height(48.dp),
             enabled = false
         ) {}
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        Text(
+            text = stringResource(id = R.string.text_sign_in),
+            color = JunctionColor.Gray200,
+            style = JunctionTypography.body3,
+            textDecoration = TextDecoration.Underline,
+            modifier = Modifier
+                .align(Alignment.CenterHorizontally)
+                .clickable {
+                    navController.navigate(NavGroup.OnBoarding.SIGN_IN) {
+                        popUpTo(NavGroup.OnBoarding.SIGN_UP) {
+                            inclusive = true
+                        }
+                    }
+                }
+        )
     }
 }
 
 @Preview
 @Composable
 fun PreviewSignUpScreen() {
-    SignUpScreen(navController = rememberNavController(), viewModel = hiltViewModel())
+    SignUpScreen(navController = rememberNavController(), signUpVm = hiltViewModel())
 }
