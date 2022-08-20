@@ -14,4 +14,4 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "ReportManagement"
-include (":app")
+include(":app")
