@@ -50,11 +50,17 @@ fun MyPageScreen(
         Box(
             modifier = Modifier.fillMaxWidth()
         ) {
-            Image(painter = painterResource(id = myPageState.tier.layoutId), contentDescription = null)
+            Image(
+                painter = painterResource(id = myPageState.tier.layoutId),
+                contentDescription = null
+            )
 
-            IconButton(onClick = { navController.popBackStack() }, modifier = Modifier.padding(25.dp)) {
-            Icon(painter = painterResource(id = JunctionIcon.Back), contentDescription = null)
-        }
+            IconButton(
+                onClick = { navController.popBackStack() },
+                modifier = Modifier.padding(25.dp)
+            ) {
+                Icon(painter = painterResource(id = JunctionIcon.Back), contentDescription = null)
+            }
 
             Image(
                 painter = painterResource(id = R.drawable.ic_profile),

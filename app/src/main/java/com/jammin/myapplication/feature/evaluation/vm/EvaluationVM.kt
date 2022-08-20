@@ -9,9 +9,7 @@ import org.orbitmvi.orbit.viewmodel.container
 import javax.inject.Inject
 
 @HiltViewModel
-class EvaluationVM @Inject constructor(
-
-) : ContainerHost<EvaluationState, EvaluationSideEffect>, ViewModel() {
+class EvaluationVM @Inject constructor() : ContainerHost<EvaluationState, EvaluationSideEffect>, ViewModel() {
 
     override val container = container<EvaluationState, EvaluationSideEffect>(EvaluationState())
 }
