@@ -4,6 +4,8 @@ import androidx.compose.ui.graphics.Color
 
 object JunctionColor {
 
+    val BackgroundColor = Color(0xFFFBFBFB)
+
     val White = Color(0xFFFFFFFF)
     val Gray100 = Color(0xFFEEEEEE)
     val Gray200 = Color(0xFFBDBDBD)

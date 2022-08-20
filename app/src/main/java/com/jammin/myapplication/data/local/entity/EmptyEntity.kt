@@ -1,4 +1,4 @@
-package com.jammin.myapplication.data.local
+package com.jammin.myapplication.data.local.entity
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

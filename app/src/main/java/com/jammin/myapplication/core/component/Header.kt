@@ -6,9 +6,9 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.material.Divider
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
 import androidx.compose.runtime.Composable
@@ -19,6 +19,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.jammin.myapplication.core.icon.JunctionIcon
 import com.jammin.myapplication.core.theme.Body1
+import com.jammin.myapplication.core.theme.JunctionColor
 
 @Composable
 fun Header(
@@ -29,36 +30,39 @@ fun Header(
     onPrevious: (() -> Unit)? = null,
     onMessage: (() -> Unit)? = null,
 ) {
-    Row(
-        modifier = modifier
-            .fillMaxWidth()
-            .height(38.dp)
-            .padding(horizontal = 20.dp),
-        verticalAlignment = Alignment.CenterVertically
-    ) {
-        if (enabledBackBtn) {
-            IconButton(onClick = onPrevious ?: {}, modifier = Modifier.size(21.dp)) {
-            Icon(
-                painter = painterResource(id = JunctionIcon.Back),
-                contentDescription = null
-            )
-        }
+    Column {
+        Row(
+            modifier = modifier
+                .fillMaxWidth()
+                .height(38.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            if (enabledBackBtn) {
+                IconButton(onClick = onPrevious ?: {}, modifier = Modifier.size(21.dp)) {
+                Icon(
+                    painter = painterResource(id = JunctionIcon.Back),
+                    contentDescription = null
+                )
+            }
+            }
+
+            Spacer(modifier = Modifier.width(12.dp))
+
+            Body1(text = headerText)
+
+            Spacer(modifier = Modifier.weight(1f))
+
+            if (enabledChatBtn) {
+                IconButton(onClick = onMessage ?: {}, modifier = Modifier.size(21.dp)) {
+                Image(
+                    painter = painterResource(id = JunctionIcon.Message),
+                    contentDescription = null
+                )
+            }
+            }
         }
 
-        Spacer(modifier = Modifier.width(12.dp))
-
-        Body1(text = headerText)
-
-        Spacer(modifier = Modifier.weight(1f))
-
-        if (enabledChatBtn) {
-            IconButton(onClick = onMessage ?: {}, modifier = Modifier.size(21.dp)) {
-            Image(
-                painter = painterResource(id = JunctionIcon.Message),
-                contentDescription = null
-            )
-        }
-        }
+        Divider(thickness = 0.5.dp, color = JunctionColor.Gray100, modifier = Modifier.fillMaxWidth())
     }
 }
 
