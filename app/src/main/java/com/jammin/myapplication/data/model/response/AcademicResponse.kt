@@ -1,6 +1,6 @@
-package com.jammin.myapplication.data.model
+package com.jammin.myapplication.data.model.response
 
-data class AcademicEntity(
+data class AcademicResponse(
     val reportList: List<Report>
 ) {
     data class Report(
