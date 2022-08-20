@@ -109,8 +109,11 @@ fun SignUpScreen(
         BigMainRoundButton(
             text = stringResource(R.string.text_ok),
             modifier = Modifier.height(48.dp),
-            enabled = false
-        ) {}
+            enabled = true,
+            onClick = {
+                signUpVm.onEvent(SignUpEvent.OkEvent)
+            }
+        )
 
         Spacer(modifier = Modifier.height(16.dp))
 

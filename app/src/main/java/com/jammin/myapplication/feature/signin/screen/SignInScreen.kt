@@ -101,7 +101,7 @@ fun SignInScreen(
             modifier = Modifier.height(48.dp),
             enabled = true,
             onClick = {
-                navigateToHome(navController)
+                signInVm.onEvent(SignInEvent.OkEvent)
             }
         )
 

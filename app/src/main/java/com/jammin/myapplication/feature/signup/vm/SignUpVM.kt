@@ -1,6 +1,7 @@
 package com.jammin.myapplication.feature.signup.vm
 
 import android.app.Application
+import android.util.Log.d
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.AndroidViewModel
@@ -78,6 +79,7 @@ class SignUpVM @Inject constructor(
                         .onSuccess { _eventFlow.emit(UiEvent.SuccessSignUp) }
                         .onFailure { _eventFlow.emit(UiEvent.FailSignUp) }
                 }
+                Timber.d("SingUpEvent OkEvent")
             }
         }
     }
