@@ -162,3 +162,31 @@ fun Body4(
         onTextLayout = onTextLayout,
     )
 }
+
+@Composable
+fun Error(
+    text: String,
+    modifier: Modifier = Modifier,
+    color: Color = JunctionColor.Error,
+    textDecoration: TextDecoration? = null,
+    textAlign: TextAlign? = null,
+    lineHeight: TextUnit = TextUnit.Unspecified,
+    overflow: TextOverflow = TextOverflow.Clip,
+    softWrap: Boolean = true,
+    maxLines: Int = Int.MAX_VALUE,
+    onTextLayout: (TextLayoutResult) -> Unit = {},
+) {
+    Text(
+        text = text,
+        modifier = modifier,
+        color = color,
+        style = JunctionTypography.body3,
+        textDecoration = textDecoration,
+        textAlign = textAlign,
+        lineHeight = lineHeight,
+        overflow = overflow,
+        softWrap = softWrap,
+        maxLines = maxLines,
+        onTextLayout = onTextLayout,
+    )
+}
