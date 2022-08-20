@@ -35,11 +35,11 @@ fun EvaluationScreen(
         Header(headerText = "Evaluation", enabledBackBtn = true, enabledEditBtn = true, onEdit = { })
 
         Spacer(modifier = Modifier.height(16.dp))
-        
+
         LazyColumn() {
-            itemsIndexed(evaluationState.comments) { index, item ->  
+            itemsIndexed(evaluationState.comments) { index, item ->
                 CommentItem(commentModel = item)
-                
+
                 Spacer(modifier = Modifier.height(8.dp))
             }
         }

@@ -6,7 +6,6 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
@@ -31,7 +30,7 @@ fun PDFBox(
             .size(160.dp)
             .clip(CircleShape)
             .background(JunctionColor.BackgroundColor)
-            .clickable{
+            .clickable {
                 onClick()
             },
         contentAlignment = Alignment.Center
@@ -53,6 +52,5 @@ fun PDFBox(
 @Composable
 fun PreviewPDFBox() {
     PDFBox() {
-
     }
 }

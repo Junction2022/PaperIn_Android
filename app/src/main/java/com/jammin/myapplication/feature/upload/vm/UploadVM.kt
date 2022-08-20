@@ -1,8 +1,6 @@
 package com.jammin.myapplication.feature.upload.vm
 
 import androidx.lifecycle.ViewModel
-import com.jammin.myapplication.feature.report_detail.mvi.ReportDetailSideEffect
-import com.jammin.myapplication.feature.report_detail.mvi.ReportDetailState
 import com.jammin.myapplication.feature.upload.mvi.UploadSideEffect
 import com.jammin.myapplication.feature.upload.mvi.UploadState
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -13,9 +11,7 @@ import org.orbitmvi.orbit.viewmodel.container
 import javax.inject.Inject
 
 @HiltViewModel
-class UploadVM @Inject constructor(
-
-) : ContainerHost<UploadState, UploadSideEffect>, ViewModel() {
+class UploadVM @Inject constructor() : ContainerHost<UploadState, UploadSideEffect>, ViewModel() {
 
     override val container =
         container<UploadState, UploadSideEffect>(UploadState())
@@ -27,5 +23,4 @@ class UploadVM @Inject constructor(
     fun inputKeyword(keyword: String) = intent {
         reduce { state.copy(keyWordValue = keyword) }
     }
-
 }

@@ -45,11 +45,11 @@ fun Header(
         ) {
             if (enabledBackBtn) {
                 IconButton(onClick = onPrevious ?: {}, modifier = Modifier.size(21.dp)) {
-                    Icon(
-                        painter = painterResource(id = JunctionIcon.Back),
-                        contentDescription = null
-                    )
-                }
+                Icon(
+                    painter = painterResource(id = JunctionIcon.Back),
+                    contentDescription = null
+                )
+            }
             }
 
             Spacer(modifier = Modifier.width(12.dp))
@@ -60,22 +60,22 @@ fun Header(
 
             if (enabledChatBtn) {
                 IconButton(onClick = onMessage ?: {}, modifier = Modifier.size(24.dp)) {
-                    Image(
-                        painter = painterResource(id = JunctionIcon.Message),
-                        contentDescription = null
-                    )
-                }
+                Image(
+                    painter = painterResource(id = JunctionIcon.Message),
+                    contentDescription = null
+                )
+            }
             }
 
             if (enabledEditBtn) {
                 Spacer(modifier = Modifier.width(8.dp))
 
                 IconButton(onClick = onEdit ?: {}, modifier = Modifier.size(24.dp)) {
-                    Image(
-                        painter = painterResource(id = JunctionIcon.Edit),
-                        contentDescription = null
-                    )
-                }
+                Image(
+                    painter = painterResource(id = JunctionIcon.Edit),
+                    contentDescription = null
+                )
+            }
             }
 
             if (textBtn != null) {
@@ -86,7 +86,8 @@ fun Header(
                         if (onTextBtn != null) {
                             onTextBtn()
                         }
-                    })
+                    }
+                )
             }
         }
 

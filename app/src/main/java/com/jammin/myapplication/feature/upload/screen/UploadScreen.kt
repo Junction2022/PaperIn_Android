@@ -11,7 +11,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
-import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
@@ -37,14 +36,13 @@ fun UploadScreen(
     val uploadSideEffect = uploadContainer.sideEffectFlow
 
     LaunchedEffect(Unit) {
-
     }
 
     val takePhotoFromAlbumLauncher =
         rememberLauncherForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == Activity.RESULT_OK) {
                 result.data?.data?.let { uri ->
-                    Log.d("PDF", "UploadScreen: + ${uri}")
+                    Log.d("PDF", "UploadScreen: + $uri")
                 } ?: run {
                     // Failed
                 }
@@ -66,7 +64,6 @@ fun UploadScreen(
             )
             putExtra(Intent.EXTRA_ALLOW_MULTIPLE, false)
         }
-
 
     Column(modifier = Modifier.fillMaxSize()) {
         Header(headerText = "Produce", textBtn = "Save", onTextBtn = {})
