@@ -28,7 +28,7 @@ object JunctionTypography {
 
     val body1 = TextStyle(
         fontFamily = spoqa_han_sans_neo,
-        fontWeight = FontWeight.Bold,
+        fontWeight = FontWeight.Normal,
         fontSize = 18.sp,
     )
 

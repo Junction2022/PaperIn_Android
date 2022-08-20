@@ -7,6 +7,7 @@ import androidx.compose.foundation.interaction.collectIsPressedAsState
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
@@ -18,6 +19,18 @@ import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.jammin.myapplication.core.theme.Body1
+
+@Composable
+fun BasicOutLineButton(
+    modifier: Modifier = Modifier,
+    shape: Shape = RectangleShape,
+    enabled: Boolean = true,
+    onClick: () -> Unit,
+    backgroundColor: Color,
+    pressedBackgroundColor: Color,
+    disabledBackgroundColor: Color,
+) {
+}
 
 @Composable
 fun BasicButton(
@@ -74,6 +87,37 @@ fun BasicBigButton(
     BasicButton(
         modifier = modifier
             .fillMaxWidth()
+            .height(48.dp),
+        shape = shape,
+        enabled = enabled,
+        onClick = onClick,
+        backgroundColor = backgroundColor,
+        pressedBackgroundColor = pressedBackgroundColor,
+        disabledBackgroundColor = disabledBackgroundColor,
+    ) {
+        Body1(text = text, color = textColor)
+    }
+}
+
+@Composable
+fun BasicSmallButton(
+    text: String,
+    modifier: Modifier = Modifier,
+    shape: Shape = RectangleShape,
+    width: Dp = 152.dp,
+    enabled: Boolean = true,
+    onClick: () -> Unit,
+    backgroundColor: Color,
+    pressedBackgroundColor: Color,
+    disabledBackgroundColor: Color,
+    textColor: Color,
+    disabledTextColor: Color
+) {
+    val textColor = if (enabled) textColor else disabledTextColor
+
+    BasicButton(
+        modifier = modifier
+            .width(width)
             .height(48.dp),
         shape = shape,
         enabled = enabled,
