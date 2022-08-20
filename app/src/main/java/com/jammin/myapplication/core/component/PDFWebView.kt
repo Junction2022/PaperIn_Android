@@ -16,7 +16,7 @@ fun PDFWebView(
     url: String,
     layoutParams: ViewGroup.LayoutParams = ViewGroup.LayoutParams(
         ViewGroup.LayoutParams.MATCH_PARENT,
-        ViewGroup.LayoutParams.FILL_PARENT
+        ViewGroup.LayoutParams.MATCH_PARENT
     )
 ) {
     val mUrl = "http://docs.google.com/gview?embedded=true&url=$url"
