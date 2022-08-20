@@ -1,15 +1,28 @@
 package com.jammin.myapplication.data.network
 
-import com.jammin.myapplication.data.model.response.SignUpResponse
-import com.jammin.myapplication.data.model.request.SignUpRequest
+import com.jammin.myapplication.data.model.request.auth.SignInRequest
+import com.jammin.myapplication.data.model.response.auth.SignUpResponse
+import com.jammin.myapplication.data.model.request.auth.SignUpRequest
+import com.jammin.myapplication.data.model.response.auth.RefreshResponse
+import com.jammin.myapplication.data.model.response.auth.SignInResponse
+import retrofit2.http.Body
 import retrofit2.http.POST
 
-interface ServerAPI {
+interface AuthAPI {
 
     @POST("auth/register")
-    fun signUp(signUpRequest: SignUpRequest): SignUpResponse
+    fun signUp(
+        @Body signUpRequest: SignUpRequest
+    ): SignUpResponse
 
     @POST("auth/login")
-    fun signIn()
+    fun signIn(
+        @Body signInRequest: SignInRequest
+    ): SignInResponse
+
+    @POST("auth/refresh-tokens")
+    fun refresh(
+        @Body refreshToken: String
+    ): RefreshResponse
 
 }
