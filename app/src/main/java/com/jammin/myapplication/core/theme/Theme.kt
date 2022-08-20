@@ -10,8 +10,8 @@ import androidx.compose.ui.graphics.Color
 
 @SuppressLint("ConflictingOnColor")
 private val LightColorPalette = lightColors(
-    primary = JunctionColor.PrimaryOrange,
-    secondary = JunctionColor.Red,
+    primary = JunctionColor.MainColor,
+    secondary = JunctionColor.SubColor,
     background = Color.White,
     surface = Color.White,
     error = Color.Red,
@@ -23,8 +23,8 @@ private val LightColorPalette = lightColors(
 )
 
 private val DarkColorPalette = darkColors(
-    primary = JunctionColor.PrimaryOrange,
-    secondary = JunctionColor.Red,
+    primary = JunctionColor.MainColor,
+    secondary = JunctionColor.SubColor,
     background = Color.Black,
     surface = Color.White,
     error = Color.Red,
@@ -48,7 +48,6 @@ fun JunctionTheme(
 
     MaterialTheme(
         colors = colors,
-        typography = JunctionTypography,
         shapes = Shapes,
         content = content
     )

@@ -1,7 +1,6 @@
 package com.jammin.myapplication.core.theme
 
 import androidx.compose.material.Text
-import androidx.compose.material.Typography
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -25,17 +24,32 @@ val spoqa_han_sans_neo = FontFamily(
     Font(R.font.spoqa_han_sans_neo_thin, FontWeight.Thin)
 )
 
-val JunctionTypography = Typography(
-    defaultFontFamily = spoqa_han_sans_neo,
-    body1 = TextStyle(
+object JunctionTypography {
+
+    val body1 = TextStyle(
+        fontFamily = spoqa_han_sans_neo,
         fontWeight = FontWeight.Normal,
-        fontSize = 16.sp
-    ),
-    body2 = TextStyle(
+        fontSize = 18.sp,
+    )
+
+    val body2 = TextStyle(
+        fontFamily = spoqa_han_sans_neo,
         fontWeight = FontWeight.Normal,
-        fontSize = 14.sp
-    ),
-)
+        fontSize = 16.sp,
+    )
+
+    val body3 = TextStyle(
+        fontFamily = spoqa_han_sans_neo,
+        fontWeight = FontWeight.Bold,
+        fontSize = 14.sp,
+    )
+
+    val body4 = TextStyle(
+        fontFamily = spoqa_han_sans_neo,
+        fontWeight = FontWeight.Bold,
+        fontSize = 12.sp,
+    )
+}
 
 @Composable
 fun Body1(
@@ -83,6 +97,62 @@ fun Body2(
         modifier = modifier,
         color = color,
         style = JunctionTypography.body2,
+        textDecoration = textDecoration,
+        textAlign = textAlign,
+        lineHeight = lineHeight,
+        overflow = overflow,
+        softWrap = softWrap,
+        maxLines = maxLines,
+        onTextLayout = onTextLayout,
+    )
+}
+
+@Composable
+fun Body3(
+    text: String,
+    modifier: Modifier = Modifier,
+    color: Color = Color.Unspecified,
+    textDecoration: TextDecoration? = null,
+    textAlign: TextAlign? = null,
+    lineHeight: TextUnit = TextUnit.Unspecified,
+    overflow: TextOverflow = TextOverflow.Clip,
+    softWrap: Boolean = true,
+    maxLines: Int = Int.MAX_VALUE,
+    onTextLayout: (TextLayoutResult) -> Unit = {},
+) {
+    Text(
+        text = text,
+        modifier = modifier,
+        color = color,
+        style = JunctionTypography.body3,
+        textDecoration = textDecoration,
+        textAlign = textAlign,
+        lineHeight = lineHeight,
+        overflow = overflow,
+        softWrap = softWrap,
+        maxLines = maxLines,
+        onTextLayout = onTextLayout,
+    )
+}
+
+@Composable
+fun Body4(
+    text: String,
+    modifier: Modifier = Modifier,
+    color: Color = Color.Unspecified,
+    textDecoration: TextDecoration? = null,
+    textAlign: TextAlign? = null,
+    lineHeight: TextUnit = TextUnit.Unspecified,
+    overflow: TextOverflow = TextOverflow.Clip,
+    softWrap: Boolean = true,
+    maxLines: Int = Int.MAX_VALUE,
+    onTextLayout: (TextLayoutResult) -> Unit = {},
+) {
+    Text(
+        text = text,
+        modifier = modifier,
+        color = color,
+        style = JunctionTypography.body4,
         textDecoration = textDecoration,
         textAlign = textAlign,
         lineHeight = lineHeight,

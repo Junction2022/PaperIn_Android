@@ -21,7 +21,6 @@ android {
 
     buildFeatures {
         compose = true
-        dataBinding = true
     }
 
     buildTypes {
@@ -33,6 +32,7 @@ android {
             )
         }
     }
+
     compileOptions {
         sourceCompatibility = ProjectProperties.JAVA_VERSION
         targetCompatibility = ProjectProperties.JAVA_VERSION
@@ -67,7 +67,10 @@ dependencies {
     implementation(Dependency.Compose.COMPOSE_UI)
     implementation(Dependency.Compose.COMPOSE_NAV)
     implementation(Dependency.Compose.COMPOSE_ANI_NAV)
-    implementation(Dependency.Compose.COMPOSE_LANDSCAPIST)
+    implementation(Dependency.Compose.COMPOSE_UI_TOOL)
+
+    androidTestImplementation(Dependency.Compose.COMPOSE_TEST)
+    debugImplementation(Dependency.Compose.COMPOSE_UI_TOOL)
 
     implementation(Dependency.Retrofit.RETROFIT)
     implementation(Dependency.Retrofit.RETROFIT_CONVERTER_GSON)
