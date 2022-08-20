@@ -35,7 +35,7 @@ import com.jammin.myapplication.feature.academic.vm.AcademicVM
 
 @Composable
 fun AcademicScreen(
-    academicVM: AcademicVM = hiltViewModel(),
+    academicVM: AcademicVM,
     navController: NavController
 ) {
 
