@@ -18,6 +18,19 @@ import androidx.compose.ui.unit.dp
 import com.jammin.myapplication.core.theme.Body1
 
 @Composable
+fun BasicOutLineButton(
+    modifier: Modifier = Modifier,
+    shape: Shape = RectangleShape,
+    enabled: Boolean = true,
+    onClick: () -> Unit,
+    backgroundColor: Color,
+    pressedBackgroundColor: Color,
+    disabledBackgroundColor: Color,
+) {
+
+}
+
+@Composable
 fun BasicButton(
     modifier: Modifier = Modifier,
     shape: Shape = RectangleShape,
