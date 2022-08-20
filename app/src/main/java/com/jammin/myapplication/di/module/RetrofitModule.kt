@@ -1,7 +1,7 @@
 package com.jammin.myapplication.di.module
 
 import android.util.Log
-import com.jammin.myapplication.data.network.ServerAPI
+import com.jammin.myapplication.data.network.AuthAPI
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -41,6 +41,6 @@ object RetrofitModule {
             .build()
 
     @Provides
-    fun provideServerApi(retrofit: Retrofit): ServerAPI =
-        retrofit.create(ServerAPI::class.java)
+    fun provideServerApi(retrofit: Retrofit): AuthAPI =
+        retrofit.create(AuthAPI::class.java)
 }
