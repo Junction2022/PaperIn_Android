@@ -53,7 +53,7 @@ fun Header(
             Spacer(modifier = Modifier.weight(1f))
 
             if (enabledChatBtn) {
-                IconButton(onClick = onMessage ?: {}, modifier = Modifier.size(21.dp)) {
+                IconButton(onClick = onMessage ?: {}, modifier = Modifier.size(24.dp)) {
                 Image(
                     painter = painterResource(id = JunctionIcon.Message),
                     contentDescription = null
@@ -62,7 +62,11 @@ fun Header(
             }
         }
 
-        Divider(thickness = 0.5.dp, color = JunctionColor.Gray100, modifier = Modifier.fillMaxWidth())
+        Divider(
+            thickness = 0.5.dp,
+            color = JunctionColor.Gray100,
+            modifier = Modifier.fillMaxWidth()
+        )
     }
 }
 
