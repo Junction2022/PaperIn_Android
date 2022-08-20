@@ -4,17 +4,29 @@ import android.app.Application
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.viewModelScope
 import com.jammin.myapplication.R
+import com.jammin.myapplication.data.mapper.toModel
+import com.jammin.myapplication.data.model.request.auth.SignUpRequest
+import com.jammin.myapplication.data.repository.AuthRepository
 import com.jammin.myapplication.feature.signup.SignUpEvent
 import com.jammin.myapplication.feature.signup.SignUpTextFieldState
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.asSharedFlow
+import kotlinx.coroutines.launch
+import org.orbitmvi.orbit.syntax.simple.reduce
 import timber.log.Timber
 import javax.inject.Inject
 
 @HiltViewModel
 class SignUpVM @Inject constructor(
-    application: Application
+    application: Application,
+    private val authRepository: AuthRepository
 ) : AndroidViewModel(application) {
+
+    private val _eventFlow = MutableSharedFlow<UiEvent>()
+    val eventFlow = _eventFlow.asSharedFlow()
 
     private val _signUpName = mutableStateOf(
         SignUpTextFieldState(
@@ -55,8 +67,23 @@ class SignUpVM @Inject constructor(
                 )
             }
             is SignUpEvent.OkEvent -> {
-                Timber.tag("JoinViewModel").d("onEvent: 버튼 클릭")
+                viewModelScope.launch {
+                    authRepository.signUp(
+                        SignUpRequest(
+                            id = signUpId.value.text,
+                            password = signUpPassword.value.text,
+                            nickname = signUpName.value.text
+                        )
+                    )
+                        .onSuccess { _eventFlow.emit(UiEvent.SuccessSignUp) }
+                        .onFailure { _eventFlow.emit(UiEvent.FailSignUp) }
+                }
             }
         }
+    }
+
+    sealed class UiEvent {
+        object SuccessSignUp: UiEvent()
+        object FailSignUp: UiEvent()
     }
 }

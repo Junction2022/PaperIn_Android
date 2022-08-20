@@ -1,6 +1,5 @@
 package com.jammin.myapplication.feature.signin.screen
 
-
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -8,10 +7,10 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.material.Text
+import androidx.compose.material.rememberScaffoldState
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -30,6 +29,8 @@ import com.jammin.myapplication.core.theme.JunctionTypography
 import com.jammin.myapplication.feature.signin.SignInEvent
 import com.jammin.myapplication.feature.signin.vm.SignInVM
 import com.jammin.myapplication.root.NavGroup
+import kotlinx.coroutines.flow.collectLatest
+import timber.log.Timber
 
 @Composable
 fun SignInScreen(
@@ -39,6 +40,24 @@ fun SignInScreen(
 
     val idState = signInVm.signInId.value
     val passwordState = signInVm.signInPassword.value
+
+    val scaffoldState = rememberScaffoldState()
+
+    LaunchedEffect(Unit) {
+        signInVm.eventFlow.collectLatest { event ->
+            when(event) {
+                is SignInVM.UiEvent.SuccessSignIn -> {
+                    Timber.d(event.signInResponse.tokens.refresh.token)
+                    navigateToHome(navController)
+                }
+                is SignInVM.UiEvent.FailSignIn -> {
+                    scaffoldState.snackbarHostState.showSnackbar(
+                        message = "로그인에 실패했습니다."
+                    )
+                }
+            }
+        }
+    }
 
     Column(
         modifier = Modifier
@@ -82,7 +101,7 @@ fun SignInScreen(
             modifier = Modifier.height(48.dp),
             enabled = true,
             onClick = {
-                navController.navigate(NavGroup.Boarding.ACADEMIC_HOME)
+                navigateToHome(navController)
             }
         )
 
@@ -104,6 +123,10 @@ fun SignInScreen(
                 }
         )
     }
+}
+
+private fun navigateToHome(navController: NavController) {
+    navController.navigate(NavGroup.Boarding.ACADEMIC_HOME)
 }
 
 @Preview

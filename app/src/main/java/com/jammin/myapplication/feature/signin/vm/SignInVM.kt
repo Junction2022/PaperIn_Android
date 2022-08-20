@@ -4,18 +4,30 @@ import android.app.Application
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.jammin.myapplication.R
+import com.jammin.myapplication.data.model.request.auth.SignInRequest
+import com.jammin.myapplication.data.model.request.auth.SignUpRequest
+import com.jammin.myapplication.data.model.response.auth.SignInResponse
+import com.jammin.myapplication.data.repository.AuthRepository
 import com.jammin.myapplication.feature.signin.SignInEvent
 import com.jammin.myapplication.feature.signin.SignInTextFieldState
+import com.jammin.myapplication.feature.signup.vm.SignUpVM
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.asSharedFlow
+import kotlinx.coroutines.launch
 import timber.log.Timber
 import javax.inject.Inject
 
 @HiltViewModel
 class SignInVM @Inject constructor(
-    application: Application
+    application: Application,
+    private val authRepository: AuthRepository
 ) : AndroidViewModel(application) {
+
+    private val _eventFlow = MutableSharedFlow<UiEvent>()
+    val eventFlow = _eventFlow.asSharedFlow()
 
     private val _signInId = mutableStateOf(
         SignInTextFieldState(
@@ -44,8 +56,22 @@ class SignInVM @Inject constructor(
                 )
             }
             is SignInEvent.OkEvent -> {
-                Timber.tag("SignInVM").d("onEvent: OK 버튼 클릭")
+                viewModelScope.launch {
+                    authRepository.signIn(
+                        SignInRequest(
+                            id = signInId.value.text,
+                            password = signInPassword.value.text,
+                        )
+                    )
+                        .onSuccess { _eventFlow.emit(UiEvent.SuccessSignIn(it)) }
+                        .onFailure { _eventFlow.emit(UiEvent.FailSignIn) }
+                }
             }
         }
+    }
+
+    sealed class UiEvent {
+        data class SuccessSignIn(val signInResponse: SignInResponse): UiEvent()
+        object FailSignIn: UiEvent()
     }
 }

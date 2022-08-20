@@ -8,7 +8,9 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Text
+import androidx.compose.material.rememberScaffoldState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -27,6 +29,7 @@ import com.jammin.myapplication.core.theme.JunctionTypography
 import com.jammin.myapplication.feature.signup.SignUpEvent
 import com.jammin.myapplication.feature.signup.vm.SignUpVM
 import com.jammin.myapplication.root.NavGroup
+import kotlinx.coroutines.flow.collectLatest
 
 @Composable
 fun SignUpScreen(
@@ -37,6 +40,23 @@ fun SignUpScreen(
     val nameState = signUpVm.signUpName.value
     val idState = signUpVm.signUpId.value
     val passwordState = signUpVm.signUpPassword.value
+
+    val scaffoldState = rememberScaffoldState()
+
+    LaunchedEffect(Unit) {
+        signUpVm.eventFlow.collectLatest { event ->
+            when(event) {
+                is SignUpVM.UiEvent.SuccessSignUp -> {
+                    navigateSignIn(navController)
+                }
+                is SignUpVM.UiEvent.FailSignUp -> {
+                    scaffoldState.snackbarHostState.showSnackbar(
+                        message = "회원가입에 실패했습니다."
+                    )
+                }
+            }
+        }
+    }
 
     Column(
         modifier = Modifier
@@ -102,13 +122,17 @@ fun SignUpScreen(
             modifier = Modifier
                 .align(Alignment.CenterHorizontally)
                 .clickable {
-                    navController.navigate(NavGroup.OnBoarding.SIGN_IN) {
-                        popUpTo(NavGroup.OnBoarding.SIGN_UP) {
-                            inclusive = true
-                        }
-                    }
+                    navigateSignIn(navController)
                 }
         )
+    }
+}
+
+private fun navigateSignIn(navController: NavController) {
+    navController.navigate(NavGroup.OnBoarding.SIGN_IN) {
+        popUpTo(NavGroup.OnBoarding.SIGN_UP) {
+            inclusive = true
+        }
     }
 }
 
