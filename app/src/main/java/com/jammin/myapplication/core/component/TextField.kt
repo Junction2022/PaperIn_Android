@@ -40,7 +40,7 @@ import com.jammin.myapplication.core.theme.JunctionColor
 import com.jammin.myapplication.core.theme.JunctionTypography
 
 @Composable
-fun SimTongTextField(
+fun ReportInTextField(
     modifier: Modifier = Modifier,
     backgroundColor: Color = Color.Transparent,
     value: String,
@@ -158,27 +158,27 @@ fun PreviewMoizaTextField() {
         verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
         // default text field
-        SimTongTextField(
+        ReportInTextField(
             value = value ?: "",
             onValueChange = { value = it }
         )
 
         // password text field
-        SimTongTextField(
+        ReportInTextField(
             value = value2 ?: "",
             onValueChange = { value2 = it },
             isPassword = true
         )
 
         // error text field
-        SimTongTextField(
+        ReportInTextField(
             value = value3 ?: "",
             onValueChange = { value3 = it },
             error = "특수문자는 사용할 수 없습니다!"
         )
 
         // description text field
-        SimTongTextField(
+        ReportInTextField(
             value = value4 ?: "",
             onValueChange = { value4 = it },
             description = "비밀번호는 4자리 이상 입력해주세요.",

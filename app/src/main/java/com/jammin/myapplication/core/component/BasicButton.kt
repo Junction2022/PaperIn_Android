@@ -1,5 +1,6 @@
 package com.jammin.myapplication.core.component
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
@@ -7,7 +8,9 @@ import androidx.compose.foundation.interaction.collectIsPressedAsState
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
@@ -16,6 +19,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.graphics.Shape
+import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.jammin.myapplication.core.theme.Body1
@@ -159,4 +163,30 @@ fun BasicRoundButton(
         disabledTextColor = disabledTextColor,
         enabled = enabled
     )
+}
+
+@Composable
+fun BasicIconButton(
+    painter: Painter,
+    contentDescription: String?,
+    modifier: Modifier = Modifier,
+    enabled: Boolean = true,
+    onClick: () -> Unit,
+    shape: Shape = CircleShape,
+    backgroundColor: Color,
+    pressedBackgroundColor: Color,
+    disabledBackgroundColor: Color,
+) {
+
+    BasicButton(
+        modifier = modifier.size(40.dp),
+        shape = shape,
+        enabled = enabled,
+        onClick = onClick,
+        backgroundColor = backgroundColor,
+        pressedBackgroundColor = pressedBackgroundColor,
+        disabledBackgroundColor = disabledBackgroundColor
+    ) {
+        Image(painter = painter, contentDescription = contentDescription)
+    }
 }

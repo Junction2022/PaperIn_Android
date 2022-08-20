@@ -68,6 +68,11 @@ dependencies {
     implementation(Dependency.Compose.COMPOSE_NAV)
     implementation(Dependency.Compose.COMPOSE_ANI_NAV)
     implementation(Dependency.Compose.COMPOSE_UI_TOOL)
+    implementation(Dependency.Compose.COMPOSE_HILT_NAV)
+
+    implementation(Dependency.Mvi.ORBIT_VIEWMODEL)
+    implementation(Dependency.Mvi.ORBIT_CORE)
+    implementation("com.google.accompanist:accompanist-flowlayout:0.25.0")
 
     androidTestImplementation(Dependency.Compose.COMPOSE_TEST)
     debugImplementation(Dependency.Compose.COMPOSE_UI_TOOL)

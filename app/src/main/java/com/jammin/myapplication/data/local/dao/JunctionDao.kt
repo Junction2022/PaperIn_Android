@@ -1,4 +1,4 @@
-package com.jammin.myapplication.data.local
+package com.jammin.myapplication.data.local.dao
 
 import androidx.room.Dao
 

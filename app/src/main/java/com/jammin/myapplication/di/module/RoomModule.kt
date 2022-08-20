@@ -2,8 +2,8 @@ package com.jammin.myapplication.di.module
 
 import android.content.Context
 import androidx.room.Room
-import com.jammin.myapplication.data.local.JunctionDao
-import com.jammin.myapplication.data.local.JunctionDataBase
+import com.jammin.myapplication.data.local.dao.JunctionDao
+import com.jammin.myapplication.data.local.database.JunctionDataBase
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module

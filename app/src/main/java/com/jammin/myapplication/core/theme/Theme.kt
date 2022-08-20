@@ -12,7 +12,7 @@ import androidx.compose.ui.graphics.Color
 private val LightColorPalette = lightColors(
     primary = JunctionColor.MainColor,
     secondary = JunctionColor.SubColor,
-    background = Color.White,
+    background = JunctionColor.BackgroundColor,
     surface = Color.White,
     error = Color.Red,
     onPrimary = Color.White,
@@ -25,7 +25,7 @@ private val LightColorPalette = lightColors(
 private val DarkColorPalette = darkColors(
     primary = JunctionColor.MainColor,
     secondary = JunctionColor.SubColor,
-    background = Color.Black,
+    background = JunctionColor.BackgroundColor,
     surface = Color.White,
     error = Color.Red,
     onPrimary = Color.White,
