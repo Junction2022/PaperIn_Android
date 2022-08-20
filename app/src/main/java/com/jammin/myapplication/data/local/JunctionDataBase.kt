@@ -1,8 +1,8 @@
-package com.jammin.myapplication.data.local;
+package com.jammin.myapplication.data.local
 
-import androidx.room.Database;
+import androidx.room.Database
 import androidx.room.RoomDatabase
-import androidx.room.TypeConverters;
+import androidx.room.TypeConverters
 
 @Database(
     entities = [

@@ -9,10 +9,10 @@ object ExceptionMessage {
     const val UNKNOWN_EXCEPTION_MESSAGE = "알 수 없는 에러가 발생했습니다."
 }
 
-class NoInternetException: RuntimeException() {
+class NoInternetException : RuntimeException() {
     override val message: String = NO_INTERNET_EXCEPTION_MESSAGE
 }
 
-class UnknownException: RuntimeException() {
+class UnknownException : RuntimeException() {
     override val message: String = UNKNOWN_EXCEPTION_MESSAGE
 }

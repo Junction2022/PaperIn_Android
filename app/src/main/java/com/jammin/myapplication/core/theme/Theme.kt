@@ -35,7 +35,6 @@ private val DarkColorPalette = darkColors(
     onError = Color.Red
 )
 
-
 @Composable
 fun JunctionTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),

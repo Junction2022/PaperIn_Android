@@ -28,8 +28,8 @@ android {
         release {
             isMinifyEnabled = false
             proguardFiles(
-                    getDefaultProguardFile("proguard-android-optimize.txt"),
-                    "proguard-rules.pro"
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
             )
         }
     }
@@ -88,5 +88,4 @@ dependencies {
     testImplementation(Dependency.UnitTest.MOCKITO)
     testImplementation(Dependency.UnitTest.MOCKITO_KOTLIN)
     testImplementation(Dependency.UnitTest.MOCKITO_INLINE)
-
 }
