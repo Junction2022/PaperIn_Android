@@ -2,6 +2,8 @@ package com.jammin.myapplication.di.module
 
 import com.jammin.myapplication.data.repository.AcademicRepository
 import com.jammin.myapplication.data.repository.AcademicRepositoryImpl
+import com.jammin.myapplication.data.repository.AuthRepository
+import com.jammin.myapplication.data.repository.AuthRepositoryImpl
 import com.jammin.myapplication.data.repository.ReportDetailRepository
 import com.jammin.myapplication.data.repository.ReportDetailResponseImpl
 import dagger.Binds
@@ -25,4 +27,10 @@ abstract class RepositoryModule {
     abstract fun providesReportDetailRepository(
         reportDetailResponseImpl: ReportDetailResponseImpl
     ): ReportDetailRepository
+
+    @Singleton
+    @Binds
+    abstract fun providesAuthRepository(
+        authRepositoryImpl: AuthRepositoryImpl
+    ): AuthRepository
 }

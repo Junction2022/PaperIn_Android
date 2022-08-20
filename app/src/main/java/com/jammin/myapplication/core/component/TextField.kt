@@ -107,7 +107,7 @@ fun ReportInTextField(
                     textStyle = JunctionTypography.body3,
                     decorationBox = { innerTextField ->
                         if (value.isEmpty() && hint != null) {
-                            Body3(text = hint, color = JunctionColor.Gray300)
+                            Body3(text = hint, color = JunctionColor.Gray200)
                         }
 
                         innerTextField()

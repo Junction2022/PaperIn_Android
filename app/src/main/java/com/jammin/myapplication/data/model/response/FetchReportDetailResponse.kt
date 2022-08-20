@@ -1,6 +1,6 @@
-package com.jammin.myapplication.data.model
+package com.jammin.myapplication.data.model.response
 
-data class FetchReportDetailEntity(
+data class FetchReportDetailResponse(
     val pdfUrl: String,
     val tableList: List<TableModel>
 ) {

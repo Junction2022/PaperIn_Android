@@ -1,8 +1,8 @@
 package com.jammin.myapplication.data.repository
 
-import com.jammin.myapplication.data.model.AcademicEntity
+import com.jammin.myapplication.data.model.response.AcademicResponse
 
 interface AcademicRepository {
 
-    suspend fun fetchAcademic(): Result<AcademicEntity>
+    suspend fun fetchAcademic(): Result<AcademicResponse>
 }

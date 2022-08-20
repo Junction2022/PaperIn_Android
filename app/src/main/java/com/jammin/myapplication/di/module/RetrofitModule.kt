@@ -1,7 +1,7 @@
 package com.jammin.myapplication.di.module
 
 import android.util.Log
-import com.jammin.myapplication.data.network.ServerAPI
+import com.jammin.myapplication.data.network.AuthAPI
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -15,7 +15,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 @InstallIn(SingletonComponent::class)
 object RetrofitModule {
 
-    private val BASE_URL = "" // TODO("base url 입력")
+    private val BASE_URL = "http://172.19.251.98:3000/v1/" // TODO("base url 입력")
 
     @Provides
     fun provideHttpLoggingInterceptor(): HttpLoggingInterceptor =
@@ -41,6 +41,6 @@ object RetrofitModule {
             .build()
 
     @Provides
-    fun provideServerApi(retrofit: Retrofit): ServerAPI =
-        retrofit.create(ServerAPI::class.java)
+    fun provideServerApi(retrofit: Retrofit): AuthAPI =
+        retrofit.create(AuthAPI::class.java)
 }
