@@ -81,6 +81,9 @@ dependencies {
     implementation(Dependency.Ui.MATERIAL)
     implementation(Dependency.Ui.CONSTRAINT_LAYOUT)
 
+    implementation(Dependency.Room.ROOM_RUNTIME)
+    kapt(Dependency.Room.ROOM_COMPILER)
+
     testImplementation(Dependency.UnitTest.JUNIT)
     testImplementation(Dependency.UnitTest.MOCKITO)
     testImplementation(Dependency.UnitTest.MOCKITO_KOTLIN)
