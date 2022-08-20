@@ -1,8 +1,10 @@
-package com.jammin.myapplication.data.local
+package com.jammin.myapplication.data.local.database
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
+import com.jammin.myapplication.data.local.dao.JunctionDao
+import com.jammin.myapplication.data.local.entity.EmptyEntity
 
 @Database(
     entities = [

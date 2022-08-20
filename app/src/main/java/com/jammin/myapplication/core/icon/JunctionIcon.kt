@@ -17,4 +17,6 @@ object JunctionIcon {
     val Message = R.drawable.ic_message
 
     val Back = R.drawable.ic_back_small
+
+    val Plus = R.drawable.ic_plus
 }
