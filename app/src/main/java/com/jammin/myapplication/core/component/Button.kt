@@ -8,9 +8,12 @@ import androidx.compose.material.OutlinedButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.jammin.myapplication.core.icon.JunctionIcon
 import com.jammin.myapplication.core.theme.Body1
 import com.jammin.myapplication.core.theme.JunctionColor
 
@@ -64,6 +67,7 @@ fun OutlineButton(
     modifier: Modifier = Modifier,
     round: Dp = 16.dp,
     text: String,
+    textColor: Color = Color.White,
     enabled: Boolean = true,
     onClick: () -> Unit
 ) {
@@ -76,8 +80,28 @@ fun OutlineButton(
         shape = RoundedCornerShape(round),
         enabled = enabled
     ) {
-        Body1(text = text, color = Color.White)
+        Body1(text = text, color = textColor)
     }
+}
+
+@Composable
+fun PlusButton(
+    modifier: Modifier = Modifier,
+    painter: Painter = painterResource(id = JunctionIcon.Plus),
+    contentDescription: String?,
+    enabled: Boolean = true,
+    onClick: () -> Unit
+) {
+    BasicIconButton(
+        modifier = modifier,
+        painter = painter,
+        contentDescription = contentDescription,
+        onClick = onClick,
+        backgroundColor = JunctionColor.MainColor,
+        pressedBackgroundColor = JunctionColor.PressedColor,
+        disabledBackgroundColor = JunctionColor.SubColor,
+        enabled = enabled
+    )
 }
 
 @Preview
