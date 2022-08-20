@@ -38,6 +38,28 @@ fun BigMainRoundButton(
 }
 
 @Composable
+fun BigSmallRoundButton(
+    modifier: Modifier = Modifier,
+    round: Dp = 16.dp,
+    text: String,
+    enabled: Boolean = true,
+    onClick: () -> Unit
+) {
+    BasicSmallButton(
+        modifier = modifier,
+        text = text,
+        shape = RoundedCornerShape(round),
+        onClick = onClick,
+        backgroundColor = JunctionColor.MainColor,
+        pressedBackgroundColor = JunctionColor.PressedColor,
+        disabledBackgroundColor = JunctionColor.SubColor,
+        textColor = JunctionColor.White,
+        disabledTextColor = JunctionColor.White,
+        enabled = enabled
+    )
+}
+
+@Composable
 fun OutlineButton(
     modifier: Modifier = Modifier,
     round: Dp = 16.dp,
@@ -63,11 +85,12 @@ fun OutlineButton(
 fun ButtonPreview() {
     Column(modifier = Modifier.background(JunctionColor.Gray100)) {
         BigMainRoundButton(text = "로그인") {
+        }
 
+        BigSmallRoundButton(text = "로그인") {
         }
 
         OutlineButton(text = "123") {
-
         }
     }
 }
