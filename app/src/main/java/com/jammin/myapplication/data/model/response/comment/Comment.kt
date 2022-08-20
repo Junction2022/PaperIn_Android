@@ -1,4 +1,4 @@
-package com.jammin.myapplication.data.model.response.thesis
+package com.jammin.myapplication.data.model.response.comment
 
 import com.jammin.myapplication.data.model.response.user.User
 
