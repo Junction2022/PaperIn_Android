@@ -2,7 +2,6 @@ package com.jammin.myapplication.data.model.response.auth
 
 import com.google.gson.annotations.SerializedName
 
-
 data class SignUpResponse(
 
     @field:SerializedName("user")
