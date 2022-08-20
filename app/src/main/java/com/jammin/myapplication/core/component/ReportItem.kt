@@ -37,7 +37,6 @@ fun ReportItem(
             .padding(horizontal = 20.dp, vertical = 16.dp)
     ) {
         Column() {
-
             Body2(text = title)
 
             Spacer(modifier = Modifier.height(8.dp))
