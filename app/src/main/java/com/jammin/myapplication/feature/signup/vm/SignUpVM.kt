@@ -7,7 +7,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import com.jammin.myapplication.R
-import com.jammin.myapplication.data.mapper.toModel
 import com.jammin.myapplication.data.model.request.auth.SignUpRequest
 import com.jammin.myapplication.data.repository.AuthRepository
 import com.jammin.myapplication.feature.signup.SignUpEvent
@@ -16,7 +15,6 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.launch
-import org.orbitmvi.orbit.syntax.simple.reduce
 import timber.log.Timber
 import javax.inject.Inject
 
@@ -85,7 +83,7 @@ class SignUpVM @Inject constructor(
     }
 
     sealed class UiEvent {
-        object SuccessSignUp: UiEvent()
-        object FailSignUp: UiEvent()
+        object SuccessSignUp : UiEvent()
+        object FailSignUp : UiEvent()
     }
 }

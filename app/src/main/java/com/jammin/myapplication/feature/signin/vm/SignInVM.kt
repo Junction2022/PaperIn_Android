@@ -7,17 +7,14 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import com.jammin.myapplication.R
 import com.jammin.myapplication.data.model.request.auth.SignInRequest
-import com.jammin.myapplication.data.model.request.auth.SignUpRequest
 import com.jammin.myapplication.data.model.response.auth.SignInResponse
 import com.jammin.myapplication.data.repository.AuthRepository
 import com.jammin.myapplication.feature.signin.SignInEvent
 import com.jammin.myapplication.feature.signin.SignInTextFieldState
-import com.jammin.myapplication.feature.signup.vm.SignUpVM
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.launch
-import timber.log.Timber
 import javax.inject.Inject
 
 @HiltViewModel
@@ -71,7 +68,7 @@ class SignInVM @Inject constructor(
     }
 
     sealed class UiEvent {
-        data class SuccessSignIn(val signInResponse: SignInResponse): UiEvent()
-        object FailSignIn: UiEvent()
+        data class SuccessSignIn(val signInResponse: SignInResponse) : UiEvent()
+        object FailSignIn : UiEvent()
     }
 }

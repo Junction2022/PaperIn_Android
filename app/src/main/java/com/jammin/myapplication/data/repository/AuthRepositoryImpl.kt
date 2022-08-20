@@ -1,6 +1,5 @@
 package com.jammin.myapplication.data.repository
 
-import android.util.Log
 import com.jammin.myapplication.data.model.request.auth.SignInRequest
 import com.jammin.myapplication.data.model.request.auth.SignUpRequest
 import com.jammin.myapplication.data.model.response.auth.RefreshResponse
@@ -11,13 +10,12 @@ import javax.inject.Inject
 
 class AuthRepositoryImpl @Inject constructor(
     private val authApi: AuthAPI
-): AuthRepository {
+) : AuthRepository {
 
     override suspend fun signUp(signUpRequest: SignUpRequest): Result<SignUpResponse> =
         kotlin.runCatching {
             authApi.signUp(signUpRequest)
         }
-
 
     override suspend fun signIn(signInRequest: SignInRequest): Result<SignInResponse> =
         kotlin.runCatching {

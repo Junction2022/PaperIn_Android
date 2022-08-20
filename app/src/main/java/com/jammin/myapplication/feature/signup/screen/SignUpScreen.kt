@@ -45,7 +45,7 @@ fun SignUpScreen(
 
     LaunchedEffect(Unit) {
         signUpVm.eventFlow.collectLatest { event ->
-            when(event) {
+            when (event) {
                 is SignUpVM.UiEvent.SuccessSignUp -> {
                     navigateSignIn(navController)
                 }

@@ -45,7 +45,7 @@ fun SignInScreen(
 
     LaunchedEffect(Unit) {
         signInVm.eventFlow.collectLatest { event ->
-            when(event) {
+            when (event) {
                 is SignInVM.UiEvent.SuccessSignIn -> {
                     Timber.d(event.signInResponse.tokens.refresh.token)
                     navigateToHome(navController)
