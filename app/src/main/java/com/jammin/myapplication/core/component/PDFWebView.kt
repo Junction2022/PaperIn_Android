@@ -52,7 +52,8 @@ fun PDFWebView(
             },
             update = {
                 it.loadUrl(mUrl)
-            })
+            }
+        )
     } else {
         Box(
             modifier = modifier

@@ -3,8 +3,7 @@ package com.jammin.myapplication.data.repository
 import com.jammin.myapplication.data.model.FetchReportDetailEntity
 import javax.inject.Inject
 
-class ReportDetailResponseImpl @Inject constructor(
-) : ReportDetailRepository {
+class ReportDetailResponseImpl @Inject constructor() : ReportDetailRepository {
     override suspend fun fetchReportDetail(reportId: Int): Result<FetchReportDetailEntity> =
         kotlin.runCatching {
             val fakeData = FetchReportDetailEntity(

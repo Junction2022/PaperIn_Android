@@ -1,13 +1,10 @@
 package com.jammin.myapplication.feature.report_detail.screen
 
-import androidx.compose.foundation.gestures.scrollable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
@@ -46,7 +43,6 @@ fun ReportDetailScreen(
             enabledChatBtn = true,
             onPrevious = { navController.popBackStack() }
         ) {
-
         }
 
         Spacer(modifier = Modifier.height(16.dp))

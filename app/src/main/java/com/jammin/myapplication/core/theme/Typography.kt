@@ -28,25 +28,25 @@ object JunctionTypography {
 
     val body1 = TextStyle(
         fontFamily = spoqa_han_sans_neo,
-        fontWeight = FontWeight.Normal,
+        fontWeight = FontWeight.Bold,
         fontSize = 18.sp,
     )
 
     val body2 = TextStyle(
         fontFamily = spoqa_han_sans_neo,
-        fontWeight = FontWeight.Normal,
+        fontWeight = FontWeight.Medium,
         fontSize = 16.sp,
     )
 
     val body3 = TextStyle(
         fontFamily = spoqa_han_sans_neo,
-        fontWeight = FontWeight.Bold,
+        fontWeight = FontWeight.Normal,
         fontSize = 14.sp,
     )
 
     val body4 = TextStyle(
         fontFamily = spoqa_han_sans_neo,
-        fontWeight = FontWeight.Bold,
+        fontWeight = FontWeight.Normal,
         fontSize = 12.sp,
     )
 }
