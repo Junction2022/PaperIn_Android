@@ -10,5 +10,7 @@ sealed class NavGroup(val group: String) {
 
     object Boarding : NavGroup("boarding") {
         const val ACADEMIC_HOME = "academicHome"
+
+        const val REPORT_DETAIL = "reportDetail"
     }
 }

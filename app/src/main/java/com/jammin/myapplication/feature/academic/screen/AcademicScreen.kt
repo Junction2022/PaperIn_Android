@@ -22,7 +22,6 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.jammin.myapplication.R
 import com.jammin.myapplication.core.component.Header
@@ -35,7 +34,7 @@ import com.jammin.myapplication.feature.academic.vm.AcademicVM
 
 @Composable
 fun AcademicScreen(
-    academicVM: AcademicVM = hiltViewModel(),
+    academicVM: AcademicVM,
     navController: NavController
 ) {
 
