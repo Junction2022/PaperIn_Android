@@ -1,11 +1,9 @@
 package com.jammin.myapplication.data.repository
 
 import com.jammin.myapplication.data.model.AcademicEntity
-import com.jammin.myapplication.data.network.ServerAPI
 import javax.inject.Inject
 
-class AcademicRepositoryImpl @Inject constructor(
-) : AcademicRepository {
+class AcademicRepositoryImpl @Inject constructor() : AcademicRepository {
 
     override suspend fun fetchAcademic(): Result<AcademicEntity> = kotlin.runCatching {
         val fakeData =
