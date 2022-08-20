@@ -19,4 +19,8 @@ object JunctionIcon {
     val Back = R.drawable.ic_back_small
 
     val Plus = R.drawable.ic_plus
+
+    val Edit = R.drawable.ic_edit
+
+    val PDF = R.drawable.ic_pdf
 }
