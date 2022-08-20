@@ -35,6 +35,5 @@ fun BigMainRoundButton(
 @Composable
 fun ButtonPreview() {
     BigMainRoundButton(text = "로그인") {
-
     }
 }

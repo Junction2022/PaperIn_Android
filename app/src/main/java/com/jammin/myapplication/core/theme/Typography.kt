@@ -1,7 +1,6 @@
 package com.jammin.myapplication.core.theme
 
 import androidx.compose.material.Text
-import androidx.compose.material.Typography
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -24,7 +23,6 @@ val spoqa_han_sans_neo = FontFamily(
     Font(R.font.spoqa_han_sans_neo_regular, FontWeight.Normal),
     Font(R.font.spoqa_han_sans_neo_thin, FontWeight.Thin)
 )
-
 
 object JunctionTypography {
 
@@ -109,7 +107,6 @@ fun Body2(
     )
 }
 
-
 @Composable
 fun Body3(
     text: String,
@@ -137,8 +134,6 @@ fun Body3(
         onTextLayout = onTextLayout,
     )
 }
-
-
 
 @Composable
 fun Body4(

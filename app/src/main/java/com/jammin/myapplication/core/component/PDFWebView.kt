@@ -7,7 +7,6 @@ import android.webkit.WebChromeClient
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.viewinterop.AndroidView
 
 @SuppressLint("SetJavaScriptEnabled")
@@ -39,10 +38,4 @@ fun PDFWebView(
     }, update = {
         it.loadUrl(mUrl)
     })
-}
-
-@Preview
-@Composable
-fun PreviewPDF() {
-    PDFWebView(url = "http://www.e-ffyc.re.kr/xml/03711/03711.pdf")
 }
