@@ -7,7 +7,7 @@ import java.io.File
 
 interface ThesisRepository {
 
-    suspend fun getAllThesis(): Result<GetAllThesisResponse>
+    suspend fun getAllThesis(): GetAllThesisResponse
 
     suspend fun getThesis(thesisId: String): Result<ThesisResponse>
 

@@ -1,5 +1,6 @@
 package com.jammin.myapplication.feature.academic.vm
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import com.jammin.myapplication.data.repository.ThesisRepository
 import com.jammin.myapplication.feature.academic.mvi.AcademicSideEffect
@@ -9,6 +10,7 @@ import org.orbitmvi.orbit.ContainerHost
 import org.orbitmvi.orbit.syntax.simple.intent
 import org.orbitmvi.orbit.syntax.simple.reduce
 import org.orbitmvi.orbit.viewmodel.container
+import java.lang.Exception
 import javax.inject.Inject
 
 @HiltViewModel
@@ -19,9 +21,14 @@ class AcademicVM @Inject constructor(
     override val container = container<AcademicState, AcademicSideEffect>(AcademicState())
 
     fun fetchThesisList() = intent {
-        thesisRepository.getAllThesis()
-            .onSuccess { reduce { state.copy(thesisList = it.thesisList) } }
-            .onFailure { }
+        try {
+            val data = thesisRepository.getAllThesis()
+            Log.d("MainTest", "fetchThesisList: ${data}")
+            reduce { state.copy(thesisList = data.thesisList) }
+        } catch (e: Exception) {
+
+        }
+
     }
 
     fun inputSearch(value: String) = intent {

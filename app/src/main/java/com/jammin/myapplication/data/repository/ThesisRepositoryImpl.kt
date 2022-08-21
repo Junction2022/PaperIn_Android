@@ -18,10 +18,8 @@ class ThesisRepositoryImpl @Inject constructor(
 
     private lateinit var fileBody: MultipartBody
 
-    override suspend fun getAllThesis(): Result<GetAllThesisResponse> {
-        return kotlin.runCatching {
-            api.getAllThesis()
-        }
+    override suspend fun getAllThesis(): GetAllThesisResponse {
+        return api.getAllThesis()
     }
 
     override suspend fun getThesis(thesisId: String): Result<ThesisResponse> {

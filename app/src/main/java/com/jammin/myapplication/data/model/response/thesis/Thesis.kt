@@ -8,7 +8,7 @@ data class Thesis(
     val file: String,
     val language: String,
     val topic: String,
-    val pageCount: String,
+    val pageCount: Int,
     val author: String,
     val id: String
 )

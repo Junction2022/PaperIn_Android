@@ -8,6 +8,6 @@ fun Thesis.toTableList(): List<TableModel> {
         TableModel("저자", author),
         TableModel("작성언어", language),
         TableModel("주제어", topic),
-        TableModel("수록면", pageCount),
+        TableModel("수록면", pageCount.toString()),
     )
 }
