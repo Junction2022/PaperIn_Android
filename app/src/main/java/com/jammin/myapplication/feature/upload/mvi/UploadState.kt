@@ -4,5 +4,6 @@ data class UploadState(
     val isLoading: Boolean = false,
     val titleValue: String = "",
     val keyWordValue: String = "",
-    val fileUpload: Boolean = false
+    val fileUpload: Boolean = false,
+    val uploadUrl: String = ""
 )

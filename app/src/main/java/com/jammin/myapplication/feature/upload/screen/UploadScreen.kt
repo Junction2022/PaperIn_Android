@@ -36,9 +36,13 @@ import com.jammin.myapplication.core.component.ReportInTextField
 import com.jammin.myapplication.core.icon.JunctionIcon
 import com.jammin.myapplication.core.theme.Body2
 import com.jammin.myapplication.core.theme.JunctionColor
+import com.jammin.myapplication.feature.upload.mvi.UploadSideEffect
 import com.jammin.myapplication.feature.upload.vm.UploadVM
+import com.jammin.myapplication.utils.observeWithLifecycle
+import kotlinx.coroutines.InternalCoroutinesApi
 import java.io.File
 
+@OptIn(InternalCoroutinesApi::class)
 @Composable
 fun UploadScreen(
     uploadVM: UploadVM,
@@ -48,7 +52,15 @@ fun UploadScreen(
     val uploadState = uploadContainer.stateFlow.collectAsState().value
     val uploadSideEffect = uploadContainer.sideEffectFlow
 
-    LaunchedEffect(Unit) {
+    uploadSideEffect.observeWithLifecycle {
+        when(it) {
+            is UploadSideEffect.UploadSuccess -> {
+                navController.popBackStack()
+            }
+            is UploadSideEffect.UploadFailed -> {
+                navController.popBackStack()
+            }
+        }
     }
 
     val takePhotoFromAlbumLauncher =
@@ -59,8 +71,6 @@ fun UploadScreen(
 
                     val file = File(uri.toString())
                     uploadVM.uploadFile(listOf(file))
-
-                    Log.d("PDF", "UploadScreen: + $uri")
                 } ?: run {
                     // Failed
                 }
@@ -91,7 +101,7 @@ fun UploadScreen(
         Header(
             headerText = "Produce",
             textBtn = "Save",
-            onTextBtn = { navController.popBackStack() },
+            onTextBtn = { uploadVM.createPost() },
             enabledBackBtn = true,
             onPrevious = { navController.popBackStack() }
         )
