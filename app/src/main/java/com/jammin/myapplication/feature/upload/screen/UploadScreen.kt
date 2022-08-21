@@ -2,6 +2,7 @@ package com.jammin.myapplication.feature.upload.screen
 
 import android.app.Activity
 import android.content.Intent
+import android.net.Uri
 import android.provider.MediaStore
 import android.util.Log
 import androidx.activity.compose.rememberLauncherForActivityResult
@@ -37,6 +38,10 @@ import com.jammin.myapplication.core.icon.JunctionIcon
 import com.jammin.myapplication.core.theme.Body2
 import com.jammin.myapplication.core.theme.JunctionColor
 import com.jammin.myapplication.feature.upload.vm.UploadVM
+import okhttp3.MediaType
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
+import java.io.File
 
 @Composable
 fun UploadScreen(
@@ -55,6 +60,10 @@ fun UploadScreen(
             if (result.resultCode == Activity.RESULT_OK) {
                 result.data?.data?.let { uri ->
                     uploadVM.inputFileState(true)
+
+                    val file = File(uri.toString())
+                    uploadVM.uploadFile(listOf(file))
+
                     Log.d("PDF", "UploadScreen: + $uri")
                 } ?: run {
                     // Failed
@@ -77,6 +86,7 @@ fun UploadScreen(
             )
             putExtra(Intent.EXTRA_ALLOW_MULTIPLE, false)
         }
+
 
     Column(
         modifier = Modifier

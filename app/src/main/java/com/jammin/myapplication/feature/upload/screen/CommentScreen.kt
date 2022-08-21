@@ -38,7 +38,7 @@ fun CommentScreen(
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        ReportInTextField(value = comment, onValueChange = { comment = it }, s)
+        ReportInTextField(value = comment, onValueChange = { comment = it })
     }
 
 }
