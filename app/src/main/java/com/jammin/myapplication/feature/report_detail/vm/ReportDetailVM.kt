@@ -36,7 +36,6 @@ class ReportDetailVM @Inject constructor(
             .onFailure { }
     }
 
-
     fun getThesisDetail(thesisId: String) = intent {
         thesisRepository.getThesis(thesisId)
             .onSuccess {
@@ -47,6 +46,6 @@ class ReportDetailVM @Inject constructor(
                     )
                 }
             }
-            .onFailure {  }
+            .onFailure { }
     }
 }

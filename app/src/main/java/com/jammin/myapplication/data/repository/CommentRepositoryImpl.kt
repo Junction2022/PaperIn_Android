@@ -17,7 +17,7 @@ class CommentRepositoryImpl @Inject constructor(
         api.likeComment(commentId)
     }
 
-    override suspend fun disLikeComment(commentId: String)  {
+    override suspend fun disLikeComment(commentId: String) {
         api.disLikeComment(commentId)
     }
 }

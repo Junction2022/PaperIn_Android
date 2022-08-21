@@ -92,7 +92,6 @@ fun AcademicScreen(
                         ReportItem(
                             title = title,
                             categoryList = topic.split(','),
-                            onClick = { navController.navigate(NavGroup.Boarding.REPORT_PAPER) }
                         )
 
                         Spacer(modifier = Modifier.height(16.dp))

@@ -36,7 +36,7 @@ fun ReportDetailScreen(
     val reportDetailSideEffect = reportDetailContainer.sideEffectFlow
 
     LaunchedEffect(Unit) {
-        //reportDetailVM.fetchReportList(1)
+        // reportDetailVM.fetchReportList(1)
         reportDetailVM.getThesisDetail("") // TODO : thesisId 받아오기
     }
 

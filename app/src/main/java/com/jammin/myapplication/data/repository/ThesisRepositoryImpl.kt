@@ -67,5 +67,4 @@ class ThesisRepositoryImpl @Inject constructor(
         val filenameArray: Array<String> = file.name.split(".").toTypedArray()
         return filenameArray[filenameArray.size - 1]
     }
-
 }
