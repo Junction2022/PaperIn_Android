@@ -36,20 +36,35 @@ fun NavGraphBuilder.boardNavigation(
             route = NavGroup.Boarding.REPORT_DETAIL + "?thesisId={thesisId}",
             arguments = listOf(
                 navArgument(name = "thesisId") {
-                type = NavType.StringType
-                defaultValue = "" }
+                    type = NavType.StringType
+                    defaultValue = ""
+                }
             )
         ) {
             val thesisId = it.arguments?.getString("thesisId") ?: ""
-            ReportDetailScreen(navController = navController, reportDetailVM = hiltViewModel(), thesisId = thesisId)
+            ReportDetailScreen(
+                navController = navController,
+                reportDetailVM = hiltViewModel(),
+                thesisId = thesisId
+            )
         }
 
         composable(NavGroup.Boarding.ACADEMIC_HOME) {
             AcademicScreen(navController = navController, academicVM = hiltViewModel())
         }
 
-        composable(NavGroup.Boarding.REPORT_PAPER) {
-            ReportPaperScreen(navController = navController, reportDetailVM = hiltViewModel())
+        composable(
+            route = NavGroup.Boarding.REPORT_PAPER + "?thesisId={thesisId}",
+            arguments = listOf(
+                navArgument(name = "thesisId") {
+                    type = NavType.StringType
+                    defaultValue = ""
+                }
+            )
+        ) {
+            val thesisId = it.arguments?.getString("thesisId") ?: ""
+
+            ReportPaperScreen(navController = navController, reportDetailVM = hiltViewModel(), thesisId = thesisId)
         }
 
 /*        composable(NavGroup.Boarding.REPORT_DETAIL) {

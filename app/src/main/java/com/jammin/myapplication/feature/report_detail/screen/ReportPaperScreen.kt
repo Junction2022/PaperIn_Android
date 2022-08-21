@@ -22,7 +22,8 @@ import com.jammin.myapplication.root.NavGroup
 @Composable
 fun ReportPaperScreen(
     navController: NavController,
-    reportDetailVM: ReportDetailVM
+    reportDetailVM: ReportDetailVM,
+    thesisId: String
 ) {
     val reportDetailContainer = reportDetailVM.container
     val reportDetailState = reportDetailContainer.stateFlow.collectAsState().value
@@ -58,5 +59,5 @@ fun ReportPaperScreen(
 @Preview
 @Composable
 fun PreviewEvaluation() {
-    ReportPaperScreen(rememberNavController(), hiltViewModel())
+    ReportPaperScreen(rememberNavController(), hiltViewModel(), "1")
 }
