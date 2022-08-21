@@ -23,4 +23,6 @@ object JunctionIcon {
     val Edit = R.drawable.ic_edit
 
     val PDF = R.drawable.ic_pdf
+
+    val Notice = R.drawable.ic_notice
 }

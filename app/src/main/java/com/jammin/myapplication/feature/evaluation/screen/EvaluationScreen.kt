@@ -32,7 +32,7 @@ fun EvaluationScreen(
     }
 
     Column() {
-        Header(headerText = "Evaluation", enabledBackBtn = true, enabledEditBtn = true, onEdit = { })
+        Header(headerText = "Evaluation", enabledBackBtn = true, enabledEditBtn = true, onEdit = { }, onPrevious = { navController.popBackStack() })
 
         Spacer(modifier = Modifier.height(16.dp))
 

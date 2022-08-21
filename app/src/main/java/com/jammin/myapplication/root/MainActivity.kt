@@ -18,7 +18,7 @@ class MainActivity : ComponentActivity() {
 
             NavHost(
                 navController = navController,
-                startDestination = NavGroup.Boarding.group
+                startDestination = NavGroup.OnBoarding.group
             ) {
                 boardNavigation(
                     navController = navController

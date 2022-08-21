@@ -1,6 +1,7 @@
 package com.jammin.myapplication.feature.academic.screen
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -31,6 +32,8 @@ import com.jammin.myapplication.core.component.ReportInTextField
 import com.jammin.myapplication.core.component.ReportItem
 import com.jammin.myapplication.core.theme.JunctionColor
 import com.jammin.myapplication.feature.academic.vm.AcademicVM
+import com.jammin.myapplication.feature.report_detail.screen.ReportPaperScreen
+import com.jammin.myapplication.root.NavGroup
 
 @Composable
 fun AcademicScreen(
@@ -86,7 +89,11 @@ fun AcademicScreen(
             LazyColumn() {
                 itemsIndexed(academicState.reportList) { index, item ->
                     item.run {
-                        ReportItem(title = title, categoryList = category)
+                        ReportItem(
+                            title = title,
+                            categoryList = category,
+                            onClick = { navController.navigate(NavGroup.Boarding.REPORT_PAPER) }
+                        )
 
                         Spacer(modifier = Modifier.height(16.dp))
                     }
@@ -106,12 +113,14 @@ fun AcademicScreen(
         }
 
         PlusButton(
+            enabled = true,
             contentDescription = null,
             modifier = Modifier
                 .padding(all = 16.dp)
                 .size(48.dp)
                 .align(alignment = Alignment.BottomEnd),
         ) {
+            navController.navigate(NavGroup.Boarding.UPLOAD)
         }
     }
 }

@@ -2,6 +2,7 @@ package com.jammin.myapplication.core.component
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -24,7 +25,8 @@ import com.jammin.myapplication.core.theme.JunctionColor
 fun ReportItem(
     modifier: Modifier = Modifier,
     title: String,
-    categoryList: List<String>
+    categoryList: List<String>,
+    onClick: () -> Unit = {}
 ) {
     Surface(
         modifier = modifier
@@ -35,6 +37,9 @@ fun ReportItem(
                 color = Color.White
             )
             .padding(horizontal = 20.dp, vertical = 16.dp)
+            .clickable {
+                onClick()
+            }
     ) {
         Column() {
             Body2(text = title)
