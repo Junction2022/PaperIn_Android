@@ -30,7 +30,7 @@ fun ReportPaperScreen(
     val reportDetailSideEffect = reportDetailContainer.sideEffectFlow
 
     LaunchedEffect(Unit) {
-        reportDetailVM.fetchReportList(1)
+        reportDetailVM.getThesisDetail(thesisId)
     }
 
     Column(
