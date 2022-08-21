@@ -72,7 +72,7 @@ fun NavGraphBuilder.boardNavigation(
         }*/
 
         composable(
-            NavGroup.Boarding.REPORT_EVALUATION,
+            route = NavGroup.Boarding.REPORT_EVALUATION + "?thesisId={thesisId}",
             arguments = listOf(
                 navArgument(name = "thesisId") {
                     type = NavType.StringType
@@ -81,8 +81,11 @@ fun NavGraphBuilder.boardNavigation(
             )
         ) {
             val thesisId = it.arguments?.getString("thesisId") ?: ""
-
-            EvaluationScreen(navController = navController, evaluationVM = hiltViewModel(), thesisId = thesisId)
+            EvaluationScreen(
+                navController = navController,
+                evaluationVM = hiltViewModel(),
+                thesisId = thesisId
+            )
         }
 
         composable(NavGroup.Boarding.UPLOAD) {

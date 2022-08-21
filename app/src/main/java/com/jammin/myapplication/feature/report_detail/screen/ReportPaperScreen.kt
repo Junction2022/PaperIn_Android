@@ -30,7 +30,7 @@ fun ReportPaperScreen(
     val reportDetailSideEffect = reportDetailContainer.sideEffectFlow
 
     LaunchedEffect(Unit) {
-        reportDetailVM.fetchReportList(1)
+        reportDetailVM.getThesisDetail(thesisId)
     }
 
     Column(
@@ -43,8 +43,8 @@ fun ReportPaperScreen(
             enabledBackBtn = true,
             enabledNoticeBtn = true,
             enabledChatBtn = true,
-            onMessage = { navController.navigate(NavGroup.Boarding.REPORT_EVALUATION + "?thesisId=$thesisId") },
-            onNotice = { navController.navigate(NavGroup.Boarding.REPORT_DETAIL) },
+            onMessage = { navController.navigate(NavGroup.Boarding.REPORT_EVALUATION + "?thesisId=${thesisId}") },
+            onNotice = { navController.navigate(NavGroup.Boarding.REPORT_DETAIL + "?thesisId=${thesisId}") },
             onPrevious = { navController.popBackStack() }
         )
 
