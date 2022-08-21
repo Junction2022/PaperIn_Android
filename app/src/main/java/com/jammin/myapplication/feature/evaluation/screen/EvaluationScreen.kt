@@ -22,7 +22,8 @@ import com.jammin.myapplication.root.NavGroup
 @Composable
 fun EvaluationScreen(
     navController: NavController,
-    evaluationVM: EvaluationVM
+    evaluationVM: EvaluationVM,
+    thesisId: String = ""
 ) {
 
     val evaluationContainer = evaluationVM.container
@@ -37,7 +38,7 @@ fun EvaluationScreen(
             headerText = "Evaluation",
             enabledBackBtn = true,
             enabledEditBtn = true,
-            onEdit = { navController.navigate(NavGroup.Boarding.Comment) },
+            onEdit = { navController.navigate(NavGroup.Boarding.Comment + "?thesisId=$thesisId") },
             onPrevious = { navController.popBackStack() }
         )
 

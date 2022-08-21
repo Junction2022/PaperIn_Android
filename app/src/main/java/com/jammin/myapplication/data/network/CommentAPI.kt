@@ -8,6 +8,7 @@ import retrofit2.http.POST
 import retrofit2.http.Path
 
 interface CommentAPI {
+
     @POST("comment")
     suspend fun createComment(
         @Body createCommentRequest: CreateCommentRequest

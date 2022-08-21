@@ -43,7 +43,7 @@ fun ReportPaperScreen(
             enabledBackBtn = true,
             enabledNoticeBtn = true,
             enabledChatBtn = true,
-            onMessage = { navController.navigate(NavGroup.Boarding.REPORT_EVALUATION) },
+            onMessage = { navController.navigate(NavGroup.Boarding.REPORT_EVALUATION + "?thesisId=$thesisId") },
             onNotice = { navController.navigate(NavGroup.Boarding.REPORT_DETAIL) },
             onPrevious = { navController.popBackStack() }
         )

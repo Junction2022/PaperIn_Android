@@ -71,8 +71,18 @@ fun NavGraphBuilder.boardNavigation(
             ReportDetailScreen(navController = navController, reportDetailVM = hiltViewModel())
         }*/
 
-        composable(NavGroup.Boarding.REPORT_EVALUATION) {
-            EvaluationScreen(navController = navController, evaluationVM = hiltViewModel())
+        composable(
+            NavGroup.Boarding.REPORT_EVALUATION,
+            arguments = listOf(
+                navArgument(name = "thesisId") {
+                    type = NavType.StringType
+                    defaultValue = ""
+                }
+            )
+        ) {
+            val thesisId = it.arguments?.getString("thesisId") ?: ""
+
+            EvaluationScreen(navController = navController, evaluationVM = hiltViewModel(), thesisId = thesisId)
         }
 
         composable(NavGroup.Boarding.UPLOAD) {
@@ -83,8 +93,18 @@ fun NavGraphBuilder.boardNavigation(
             MyPageScreen(navController = navController, myPageVM = hiltViewModel())
         }
 
-        composable(NavGroup.Boarding.Comment) {
-            CommentScreen(navController = navController)
+        composable(
+            NavGroup.Boarding.Comment,
+            arguments = listOf(
+                navArgument(name = "thesisId") {
+                    type = NavType.StringType
+                    defaultValue = ""
+                }
+            )
+        ) {
+            val thesisId = it.arguments?.getString("thesisId") ?: ""
+
+            CommentScreen(navController = navController, commentVM = hiltViewModel(), thesisId = thesisId)
         }
     }
 }
