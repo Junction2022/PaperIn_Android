@@ -71,8 +71,21 @@ fun NavGraphBuilder.boardNavigation(
             ReportDetailScreen(navController = navController, reportDetailVM = hiltViewModel())
         }*/
 
-        composable(NavGroup.Boarding.REPORT_EVALUATION) {
-            EvaluationScreen(navController = navController, evaluationVM = hiltViewModel())
+        composable(
+            route = NavGroup.Boarding.REPORT_EVALUATION + "?thesisId={thesisId}",
+            arguments = listOf(
+                navArgument(name = "thesisId") {
+                    type = NavType.StringType
+                    defaultValue = ""
+                }
+            )
+        ) {
+            val thesisId = it.arguments?.getString("thesisId") ?: ""
+            EvaluationScreen(
+                navController = navController,
+                evaluationVM = hiltViewModel(),
+                thesisId = thesisId
+            )
         }
 
         composable(NavGroup.Boarding.UPLOAD) {

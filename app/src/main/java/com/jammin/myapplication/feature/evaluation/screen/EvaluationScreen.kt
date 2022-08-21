@@ -3,6 +3,7 @@ package com.jammin.myapplication.feature.evaluation.screen
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.runtime.Composable
@@ -22,7 +23,8 @@ import com.jammin.myapplication.root.NavGroup
 @Composable
 fun EvaluationScreen(
     navController: NavController,
-    evaluationVM: EvaluationVM
+    evaluationVM: EvaluationVM,
+    thesisId: String
 ) {
 
     val evaluationContainer = evaluationVM.container
@@ -30,6 +32,7 @@ fun EvaluationScreen(
     val evaluationSideEffect = evaluationContainer.sideEffectFlow
 
     LaunchedEffect(Unit) {
+        evaluationVM.getThesisDetail(thesisId)
     }
 
     Column() {
@@ -43,7 +46,9 @@ fun EvaluationScreen(
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        LazyColumn() {
+        LazyColumn(
+            modifier = Modifier.padding(horizontal = 16.dp)
+        ) {
             itemsIndexed(evaluationState.comments) { index, item ->
                 CommentItem(commentModel = item)
 
@@ -51,10 +56,4 @@ fun EvaluationScreen(
             }
         }
     }
-}
-
-@Preview
-@Composable
-fun PreviewEvaluationScreen() {
-    EvaluationScreen(rememberNavController(), hiltViewModel())
 }
