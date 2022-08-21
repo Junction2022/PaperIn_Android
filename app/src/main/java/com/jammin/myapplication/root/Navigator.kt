@@ -3,7 +3,9 @@ package com.jammin.myapplication.root
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
+import androidx.navigation.NavType
 import androidx.navigation.compose.composable
+import androidx.navigation.navArgument
 import androidx.navigation.navigation
 import com.jammin.myapplication.feature.academic.screen.AcademicScreen
 import com.jammin.myapplication.feature.evaluation.screen.EvaluationScreen
@@ -19,7 +21,7 @@ fun NavGraphBuilder.boardNavigation(
     navController: NavController
 ) {
     navigation(
-        startDestination = NavGroup.Boarding.ACADEMIC_HOME,
+        startDestination = NavGroup.OnBoarding.SIGN_IN,
         route = NavGroup.OnBoarding.group
     ) {
 
@@ -30,8 +32,16 @@ fun NavGraphBuilder.boardNavigation(
             SignUpScreen(navController = navController, signUpVm = hiltViewModel())
         }
 
-        composable(NavGroup.Boarding.REPORT_DETAIL) {
-            ReportDetailScreen(navController = navController, reportDetailVM = hiltViewModel())
+        composable(
+            route = NavGroup.Boarding.REPORT_DETAIL + "?thesisId={thesisId}",
+            arguments = listOf(
+                navArgument(name = "thesisId") {
+                type = NavType.StringType
+                defaultValue = "" }
+            )
+        ) {
+            val thesisId = it.arguments?.getString("thesisId") ?: ""
+            ReportDetailScreen(navController = navController, reportDetailVM = hiltViewModel(), thesisId = thesisId)
         }
 
         composable(NavGroup.Boarding.ACADEMIC_HOME) {
@@ -42,9 +52,9 @@ fun NavGraphBuilder.boardNavigation(
             ReportPaperScreen(navController = navController, reportDetailVM = hiltViewModel())
         }
 
-        composable(NavGroup.Boarding.REPORT_DETAIL) {
+/*        composable(NavGroup.Boarding.REPORT_DETAIL) {
             ReportDetailScreen(navController = navController, reportDetailVM = hiltViewModel())
-        }
+        }*/
 
         composable(NavGroup.Boarding.REPORT_EVALUATION) {
             EvaluationScreen(navController = navController, evaluationVM = hiltViewModel())

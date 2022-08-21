@@ -90,6 +90,7 @@ fun AcademicScreen(
                         ReportItem(
                             title = title,
                             categoryList = topic.split(','),
+                            onClick = { navController.navigate(NavGroup.Boarding.REPORT_DETAIL + "?thesisId=${item.id}")}
                         )
 
                         Spacer(modifier = Modifier.height(16.dp))

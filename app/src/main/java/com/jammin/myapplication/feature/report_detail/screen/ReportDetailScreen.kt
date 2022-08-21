@@ -22,7 +22,8 @@ import com.jammin.myapplication.feature.report_detail.vm.ReportDetailVM
 @Composable
 fun ReportDetailScreen(
     reportDetailVM: ReportDetailVM,
-    navController: NavController
+    navController: NavController,
+    thesisId: String
 ) {
 
     val reportDetailContainer = reportDetailVM.container
@@ -31,7 +32,7 @@ fun ReportDetailScreen(
 
     LaunchedEffect(Unit) {
         // reportDetailVM.fetchReportList(1)
-        reportDetailVM.getThesisDetail("") // TODO : thesisId 받아오기
+        reportDetailVM.getThesisDetail(thesisId)
     }
 
     Column(modifier = Modifier.fillMaxSize()) {
