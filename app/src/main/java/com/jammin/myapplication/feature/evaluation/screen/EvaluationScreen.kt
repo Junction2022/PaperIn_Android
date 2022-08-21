@@ -41,7 +41,6 @@ fun EvaluationScreen(
             onPrevious = { navController.popBackStack() }
         )
 
-
         Spacer(modifier = Modifier.height(16.dp))
 
         LazyColumn() {

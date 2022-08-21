@@ -2,7 +2,6 @@ package com.jammin.myapplication.feature.upload.screen
 
 import android.app.Activity
 import android.content.Intent
-import android.net.Uri
 import android.provider.MediaStore
 import android.util.Log
 import androidx.activity.compose.rememberLauncherForActivityResult
@@ -38,9 +37,6 @@ import com.jammin.myapplication.core.icon.JunctionIcon
 import com.jammin.myapplication.core.theme.Body2
 import com.jammin.myapplication.core.theme.JunctionColor
 import com.jammin.myapplication.feature.upload.vm.UploadVM
-import okhttp3.MediaType
-import okhttp3.MultipartBody
-import okhttp3.RequestBody
 import java.io.File
 
 @Composable
@@ -87,7 +83,6 @@ fun UploadScreen(
             putExtra(Intent.EXTRA_ALLOW_MULTIPLE, false)
         }
 
-
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -126,11 +121,13 @@ fun UploadScreen(
                 }
             }
         } else {
-            FileBlock(modifier = Modifier
-                .padding(top = 12.dp)
-                .clickable {
-                    uploadVM.inputFileState(false)
-                })
+            FileBlock(
+                modifier = Modifier
+                    .padding(top = 12.dp)
+                    .clickable {
+                        uploadVM.inputFileState(false)
+                    }
+            )
         }
     }
 }

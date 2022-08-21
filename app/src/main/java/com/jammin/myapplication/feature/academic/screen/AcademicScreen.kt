@@ -1,7 +1,6 @@
 package com.jammin.myapplication.feature.academic.screen
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -32,7 +31,6 @@ import com.jammin.myapplication.core.component.ReportInTextField
 import com.jammin.myapplication.core.component.ReportItem
 import com.jammin.myapplication.core.theme.JunctionColor
 import com.jammin.myapplication.feature.academic.vm.AcademicVM
-import com.jammin.myapplication.feature.report_detail.screen.ReportPaperScreen
 import com.jammin.myapplication.root.NavGroup
 
 @Composable

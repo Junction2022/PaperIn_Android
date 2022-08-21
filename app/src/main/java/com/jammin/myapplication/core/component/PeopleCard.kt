@@ -19,9 +19,9 @@ fun PeopleCard(name: String) {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Image(painter = painterResource(id = JunctionIcon.Profile), contentDescription = null)
-        
+
         Spacer(modifier = Modifier.height(4.dp))
-        
+
         Body3(text = name, color = JunctionColor.Gray200)
     }
 }

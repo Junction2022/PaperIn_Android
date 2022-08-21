@@ -24,7 +24,6 @@ class UploadVM @Inject constructor(
         kotlin.runCatching {
             thesisRepository.upload(file)
         }.onSuccess { }.onFailure { }
-
     }
 
     fun inputTitle(title: String) = intent {

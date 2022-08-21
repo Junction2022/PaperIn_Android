@@ -16,7 +16,6 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.jammin.myapplication.core.component.Header
 import com.jammin.myapplication.core.component.PDFWebView
-import com.jammin.myapplication.core.component.TableList
 import com.jammin.myapplication.feature.report_detail.vm.ReportDetailVM
 import com.jammin.myapplication.root.NavGroup
 

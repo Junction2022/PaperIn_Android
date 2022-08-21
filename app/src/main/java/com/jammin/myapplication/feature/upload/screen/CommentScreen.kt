@@ -40,5 +40,4 @@ fun CommentScreen(
 
         ReportInTextField(value = comment, onValueChange = { comment = it })
     }
-
 }

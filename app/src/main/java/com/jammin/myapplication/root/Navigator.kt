@@ -57,7 +57,7 @@ fun NavGraphBuilder.boardNavigation(
         composable(NavGroup.Boarding.MyPage) {
             MyPageScreen(navController = navController, myPageVM = hiltViewModel())
         }
-        
+
         composable(NavGroup.Boarding.Comment) {
             CommentScreen(navController = navController)
         }
