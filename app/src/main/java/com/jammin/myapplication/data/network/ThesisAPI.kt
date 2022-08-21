@@ -27,6 +27,6 @@ interface ThesisAPI {
     @Multipart
     @POST("upload")
     suspend fun upload(
-        @Part file: MultipartBody.Part,
+        @Part file: MultipartBody,
     ): String
 }

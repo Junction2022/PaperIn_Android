@@ -2,6 +2,7 @@ package com.jammin.myapplication.di.module
 
 import android.util.Log
 import com.jammin.myapplication.data.network.AuthAPI
+import com.jammin.myapplication.data.network.CommentAPI
 import com.jammin.myapplication.data.network.ThesisAPI
 import dagger.Module
 import dagger.Provides
@@ -48,4 +49,8 @@ object RetrofitModule {
     @Provides
     fun provideThesisApi(retrofit: Retrofit): ThesisAPI =
         retrofit.create(ThesisAPI::class.java)
+
+    @Provides
+    fun provideCommentApi(retrofit: Retrofit): CommentAPI =
+        retrofit.create(CommentAPI::class.java)
 }
