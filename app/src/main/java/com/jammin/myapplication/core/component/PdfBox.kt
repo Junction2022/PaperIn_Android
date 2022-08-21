@@ -23,7 +23,7 @@ import com.jammin.myapplication.core.theme.JunctionColor
 @Composable
 fun PDFBox(
     modifier: Modifier = Modifier,
-    onClick: () -> Unit
+    onClick: () -> Unit = {}
 ) {
     Box(
         modifier = Modifier

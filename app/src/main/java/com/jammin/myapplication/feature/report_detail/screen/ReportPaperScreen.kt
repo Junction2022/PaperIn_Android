@@ -43,11 +43,10 @@ fun ReportPaperScreen(
             enabledBackBtn = true,
             enabledNoticeBtn = true,
             enabledChatBtn = true,
+            onMessage = { navController.navigate(NavGroup.Boarding.REPORT_EVALUATION) },
             onNotice = { navController.navigate(NavGroup.Boarding.REPORT_DETAIL) },
             onPrevious = { navController.popBackStack() }
-        ) {
-            navController.navigate(NavGroup.Boarding.REPORT_EVALUATION)
-        }
+        )
 
         Spacer(modifier = Modifier.height(16.dp))
 

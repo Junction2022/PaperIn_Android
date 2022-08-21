@@ -17,6 +17,7 @@ import androidx.navigation.compose.rememberNavController
 import com.jammin.myapplication.core.component.CommentItem
 import com.jammin.myapplication.core.component.Header
 import com.jammin.myapplication.feature.evaluation.vm.EvaluationVM
+import com.jammin.myapplication.root.NavGroup
 
 @Composable
 fun EvaluationScreen(
@@ -32,7 +33,13 @@ fun EvaluationScreen(
     }
 
     Column() {
-        Header(headerText = "Evaluation", enabledBackBtn = true, enabledEditBtn = true, onEdit = { }, onPrevious = { navController.popBackStack() })
+        Header(
+            headerText = "Evaluation",
+            enabledBackBtn = true,
+            enabledEditBtn = true,
+            onEdit = { navController.navigate(NavGroup.Boarding.Comment) },
+            onPrevious = { navController.popBackStack() }
+        )
 
         Spacer(modifier = Modifier.height(16.dp))
 

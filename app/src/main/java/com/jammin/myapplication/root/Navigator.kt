@@ -12,6 +12,7 @@ import com.jammin.myapplication.feature.report_detail.screen.ReportDetailScreen
 import com.jammin.myapplication.feature.report_detail.screen.ReportPaperScreen
 import com.jammin.myapplication.feature.signin.screen.SignInScreen
 import com.jammin.myapplication.feature.signup.screen.SignUpScreen
+import com.jammin.myapplication.feature.upload.screen.CommentScreen
 import com.jammin.myapplication.feature.upload.screen.UploadScreen
 
 fun NavGraphBuilder.boardNavigation(
@@ -55,6 +56,10 @@ fun NavGraphBuilder.boardNavigation(
 
         composable(NavGroup.Boarding.MyPage) {
             MyPageScreen(navController = navController, myPageVM = hiltViewModel())
+        }
+        
+        composable(NavGroup.Boarding.Comment) {
+            CommentScreen(navController = navController)
         }
     }
 }

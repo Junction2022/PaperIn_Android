@@ -21,5 +21,7 @@ sealed class NavGroup(val group: String) {
         const val MyPage = "MyPage"
 
         const val Academic = "Academic"
+
+        const val Comment = "Comment"
     }
 }

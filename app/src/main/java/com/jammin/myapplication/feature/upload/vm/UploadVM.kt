@@ -23,4 +23,8 @@ class UploadVM @Inject constructor() : ContainerHost<UploadState, UploadSideEffe
     fun inputKeyword(keyword: String) = intent {
         reduce { state.copy(keyWordValue = keyword) }
     }
+
+    fun inputFileState(upload: Boolean) = intent {
+        reduce { state.copy(fileUpload = upload) }
+    }
 }

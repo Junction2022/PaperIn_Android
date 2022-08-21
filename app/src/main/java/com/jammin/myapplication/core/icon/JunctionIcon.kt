@@ -25,4 +25,6 @@ object JunctionIcon {
     val PDF = R.drawable.ic_pdf
 
     val Notice = R.drawable.ic_notice
+
+    val Profile = R.drawable.ic_profile
 }
