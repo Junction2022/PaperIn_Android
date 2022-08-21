@@ -8,7 +8,7 @@ import com.jammin.myapplication.data.model.response.thesis.ThesisResponse
 import okhttp3.MultipartBody
 
 interface CommentRepository {
-    suspend fun createComment(createCommentRequest: CreateCommentRequest): CreateCommentResponse
+    suspend fun createComment(createCommentRequest: CreateCommentRequest): Result<CreateCommentResponse>
 
     suspend fun likeComment(commentId: String)
 
