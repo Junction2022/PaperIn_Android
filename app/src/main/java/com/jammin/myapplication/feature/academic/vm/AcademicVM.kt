@@ -1,8 +1,7 @@
 package com.jammin.myapplication.feature.academic.vm
 
 import androidx.lifecycle.ViewModel
-import com.jammin.myapplication.data.mapper.toModel
-import com.jammin.myapplication.data.repository.AcademicRepository
+import com.jammin.myapplication.data.repository.ThesisRepository
 import com.jammin.myapplication.feature.academic.mvi.AcademicSideEffect
 import com.jammin.myapplication.feature.academic.mvi.AcademicState
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -14,14 +13,14 @@ import javax.inject.Inject
 
 @HiltViewModel
 class AcademicVM @Inject constructor(
-    private val academicRepository: AcademicRepository
+    private val thesisRepository: ThesisRepository
 ) : ContainerHost<AcademicState, AcademicSideEffect>, ViewModel() {
 
     override val container = container<AcademicState, AcademicSideEffect>(AcademicState())
 
-    fun fetchReportList() = intent {
-        academicRepository.fetchAcademic()
-            .onSuccess { reduce { state.copy(reportList = it.toModel()) } }
+    fun fetchThesisList() = intent {
+        thesisRepository.getAllThesis()
+            .onSuccess { reduce { state.copy(thesisList = it.thesisList) } }
             .onFailure { }
     }
 

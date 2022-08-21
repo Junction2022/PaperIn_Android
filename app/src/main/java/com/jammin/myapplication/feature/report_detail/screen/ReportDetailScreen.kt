@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -34,6 +35,10 @@ fun ReportDetailScreen(
     val reportDetailState = reportDetailContainer.stateFlow.collectAsState().value
     val reportDetailSideEffect = reportDetailContainer.sideEffectFlow
 
+    LaunchedEffect(Unit) {
+        //reportDetailVM.fetchReportList(1)
+        reportDetailVM.getThesisDetail("") // TODO : thesisId 받아오기
+    }
 
     Column(modifier = Modifier.fillMaxSize()) {
         Header(headerText = "Detail") {

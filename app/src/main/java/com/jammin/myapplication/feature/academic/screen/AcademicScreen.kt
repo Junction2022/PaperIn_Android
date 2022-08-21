@@ -46,7 +46,7 @@ fun AcademicScreen(
     val academicSideEffect = academicContainer.sideEffectFlow
 
     LaunchedEffect(Unit) {
-        academicVM.fetchReportList()
+        academicVM.fetchThesisList()
     }
 
     Box(
@@ -87,11 +87,11 @@ fun AcademicScreen(
             Spacer(modifier = Modifier.height(16.dp))
 
             LazyColumn() {
-                itemsIndexed(academicState.reportList) { index, item ->
+                itemsIndexed(academicState.thesisList) { index, item ->
                     item.run {
                         ReportItem(
                             title = title,
-                            categoryList = category,
+                            categoryList = topic.split(','),
                             onClick = { navController.navigate(NavGroup.Boarding.REPORT_PAPER) }
                         )
 
