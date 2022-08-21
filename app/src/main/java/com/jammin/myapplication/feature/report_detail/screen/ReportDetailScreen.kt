@@ -1,9 +1,11 @@
 package com.jammin.myapplication.feature.report_detail.screen
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.itemsIndexed
@@ -11,8 +13,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.jammin.myapplication.R
 import com.jammin.myapplication.core.component.Header
 import com.jammin.myapplication.core.component.PeopleCard
 import com.jammin.myapplication.core.component.TableList
@@ -36,7 +40,7 @@ fun ReportDetailScreen(
     }
 
     Column(modifier = Modifier.fillMaxSize()) {
-        Header(headerText = "Detail") {
+        Header(enabledBackBtn = true, headerText = "Detail") {
             navController.popBackStack()
         }
 
@@ -53,6 +57,10 @@ fun ReportDetailScreen(
                 Spacer(modifier = Modifier.width(12.dp))
             }
         }
+
+        Spacer(modifier = Modifier.weight(1f))
+
+        Image(painter = painterResource(id = R.drawable.ic_bottom_design), contentDescription = null, modifier = Modifier.padding(30.dp))
     }
 }
 

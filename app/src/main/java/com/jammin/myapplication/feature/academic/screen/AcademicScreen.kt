@@ -1,5 +1,6 @@
 package com.jammin.myapplication.feature.academic.screen
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -20,6 +21,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
@@ -29,6 +31,7 @@ import com.jammin.myapplication.core.component.OutlineButton
 import com.jammin.myapplication.core.component.PlusButton
 import com.jammin.myapplication.core.component.ReportInTextField
 import com.jammin.myapplication.core.component.ReportItem
+import com.jammin.myapplication.core.icon.JunctionIcon
 import com.jammin.myapplication.core.theme.JunctionColor
 import com.jammin.myapplication.feature.academic.vm.AcademicVM
 import com.jammin.myapplication.root.NavGroup
@@ -74,11 +77,13 @@ fun AcademicScreen(
 
                 Spacer(modifier = Modifier.weight(1f))
 
-                Box(
+
+                Image(
+                    painter = painterResource(id = JunctionIcon.Profile),
+                    contentDescription = null,
                     modifier = Modifier
                         .size(40.dp)
                         .clip(CircleShape)
-                        .background(JunctionColor.Gray200)
                 )
             }
 
@@ -90,7 +95,7 @@ fun AcademicScreen(
                         ReportItem(
                             title = title,
                             categoryList = topic.split(','),
-                            onClick = { navController.navigate(NavGroup.Boarding.REPORT_PAPER + "?thesisId=${item.id}")}
+                            onClick = { navController.navigate(NavGroup.Boarding.REPORT_PAPER + "?thesisId=${item.id}") }
                         )
 
                         Spacer(modifier = Modifier.height(16.dp))
